@@ -1,0 +1,24 @@
+title: "Apurva Bhargava"
+description: "AI Researcher · System 2 Reasoning · EBMs · JEPA · MPC"
+markdown: kramdown
+theme: null
+baseurl: ""
+url: "https://apurvabhargava.github.io"
+
+author:
+  name: "Apurva Bhargava"
+  email: "apurvabhargava1998@gmail.com"
+
+nav:
+  - name: "About"
+    link: "/about"
+  - name: "Research"
+    link: "/research"
+  - name: "Projects"
+    link: "/projects"
+  - name: "Substack"
+    link: "/blog"
+  - name: "Resume"
+    link: "/pdf/Apurva_Bhargava_CV.pdf"
+  - name: "Contact"
+    link: "/contact"

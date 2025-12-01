@@ -1,0 +1,26 @@
+<header class="site-header">
+  <div class="container nav-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark">AB</span>
+      <span class="brand-text">
+        <span class="brand-name">{{ site.author.name }}</span>
+        <span class="brand-tagline">AI · Reasoning · Representation Learning</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" id="nav-links">
+      {% for item in site.nav %}
+        <a class="nav-link" href="{{ item.link }}">{{ item.name }}</a>
+      {% endfor %}
+    </nav>
+
+    <button id="theme-toggle" class="icon-button" aria-label="Toggle theme">
+      <span class="icon-sun">☀️</span>
+      <span class="icon-moon">🌙</span>
+    </button>
+
+    <button id="nav-toggle" class="icon-button nav-toggle" aria-label="Toggle navigation">
+      ☰
+    </button>
+  </div>
+</header>
