@@ -30,7 +30,7 @@ subtitle: "Thinking in public"
 
 <br>
 
-<p style="margin-top: 1.4rem; font-size: 1rem;">
+<p style="margin-top: 1.4rem; font-size: 1.2rem;">
   For more essays, visit my Substack:
   <a href="https://thelatentvariable.substack.com/" target="_blank" rel="noopener"><strong>The Latent Variable →</strong></a>
 </p>
