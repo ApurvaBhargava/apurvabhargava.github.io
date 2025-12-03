@@ -13,10 +13,9 @@ I am open to conversations about:
 You can reach me at:
 
 <ul class="contact-list">
-  <li>📧 <a href="mailto:apurvabhargava1998@gmail.com">apurvabhargava1998@gmail.com</a></li>
-  <li>💼 <a href="https://www.linkedin.com/in/apurvabhargava" target="_blank" rel="noopener">LinkedIn</a></li>
+  <li>📧 <a href="mailto:apurvabhargava1762@gmail.com">apurvabhargava1762@gmail.com</a></li>
+  <li>💼 <a href="https://www.linkedin.com/in/apurva-bhargava-1855ab117/" target="_blank" rel="noopener">LinkedIn</a></li>
   <li>🐙 <a href="https://github.com/ApurvaBhargava" target="_blank" rel="noopener">GitHub</a></li>
-  <li>✍️ Substack: <em>add your main Substack link here</em></li>
 </ul>
 
 If you prefer asynchronous discussions, feel free to send a short note describing your interests or questions, and I’ll
