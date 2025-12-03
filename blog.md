@@ -1,32 +1,36 @@
 ---
 layout: page
-title: "Substack & writing"
-subtitle: "Thinking in public about reasoning, representation learning, and AGI‑adjacent ideas."
+title: "Substack"
+subtitle: "Thinking in public"
 ---
 
-I use writing as a way to clarify my own thinking. Some themes that show up often:
+<div class="article-grid">
 
-- The difference between <em>looking</em> intelligent on benchmarks and actually solving robust, real‑world problems  
-- Why separating world models from decision policies matters for AGI  
-- Where current LLMs struggle with multi‑step reasoning, strategy, and control  
+  <!-- ARTICLE 1 -->
+  <a href="https://thelatentvariable.substack.com/p/representing-reality-as-stable-configurations" target="_blank" rel="noopener" class="article-card image-only">
+    <img src="/assets/img/blog/article-ebm.jpg" class="article-card-img" alt="Energy-based Models">
+  </a>
 
-### Substack
+  <!-- ARTICLE 2 -->
+  <a href="https://thelatentvariable.substack.com/p/diffusion-models-order-from-noise" target="_blank" rel="noopener" class="article-card image-only">
+    <img src="/assets/img/blog/article-diffusion.jpg" class="article-card-img" alt="Diffusion Models">
+  </a>
 
-You can find my long‑form posts on Substack:
+  <!-- ARTICLE 3 -->
+  <a href="https://thelatentvariable.substack.com/p/structured-latent-spaces-understanding" target="_blank" rel="noopener" class="article-card image-only">
+    <img src="/assets/img/blog/article-vae.jpg" class="article-card-img" alt="Variational Autoencoders">
+  </a>
 
-- <strong>DepthNote</strong> – on JEPA, EBMs, MPC, and AGI‑inspired architectures  
-  <em>(Insert your actual Substack link here.)</em>
+  <!-- ARTICLE 4 -->
+  <a href="https://thelatentvariable.substack.com/p/understanding-perplexity-an-information" target="_blank" rel="noopener" class="article-card image-only">
+    <img src="/assets/img/blog/article-perplexity.jpg" class="article-card-img" alt="Perplexity">
+  </a>
 
-- Shorter pieces on generative models (GANs, diffusion, EBMs) and lessons from production ML systems  
-  <em>(Additional Substack or blog links.)</em>
+</div>
 
----
+<br>
 
-### Other writing
-
-- Technical notes and experiments on
-  <a href="https://github.com/ApurvaBhargava" target="_blank" rel="noopener">GitHub</a>  
-- Occasional reflections on learning, research, and career paths in ML
-
-As the volume of posts grows, this page can evolve into a proper index of articles by theme (reasoning, generative
-models, systems, etc.).
+<p style="margin-top: 1.4rem; font-size: 0.95rem;">
+  For more essays, visit my Substack:
+  <a href="https://thelatentvariable.substack.com/" target="_blank" rel="noopener"><strong>DepthNote →</strong></a>
+</p>

@@ -1,5 +1,5 @@
 title: "Apurva Bhargava"
-description: "AI Researcher · System 2 Reasoning · EBMs · JEPA · MPC"
+description: "Apurva Bhargava's Website"
 markdown: kramdown
 theme: null
 baseurl: ""
@@ -12,13 +12,13 @@ author:
 nav:
   - name: "About"
     link: "/about"
-  - name: "Research"
-    link: "/research"
   - name: "Projects"
     link: "/projects"
   - name: "Substack"
     link: "/blog"
   - name: "CV"
     link: "/pdf/Apurva_Bhargava_CV.pdf"
+  - name: "Poetry"
+    link: "/poetry"
   - name: "Contact"
     link: "/contact"
