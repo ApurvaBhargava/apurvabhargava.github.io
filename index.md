@@ -12,7 +12,9 @@ title: "Home"
       Apurva Bhargava
     </h1>
     <p class="hero-subtitle">
-      <p>I am a machine learning engineer at Informed, Inc., an AI fintech startup in Bay Area. I work on document intelligence, fraud detection and representation learning problems. I'm interested in how models represent structure, reason about tasks, and behave beyond pattern-matching. I'm currently preparing for PhD study in areas at the intersection of reasoning, latent spaces, and world modeling.</p>
+      <p>I am a machine learning engineer at Informed, Inc., an AI fintech startup in Bay Area. I work on document intelligence, fraud detection and representation learning problems.</p>
+
+<p>I'm interested in how models represent structure, reason about tasks, and behave beyond pattern-matching. I'm currently preparing for PhD study in areas at the intersection of reasoning, latent spaces, and world modeling.</p>
 
 <p>Before this, I completed my master’s in data science at NYU and my undergraduate degree in computer science. I also briefly interned at IFF, Inc. solving logistics problems using AI. These projects taught me equal parts engineering discipline and cautious boldness.</p>
 
