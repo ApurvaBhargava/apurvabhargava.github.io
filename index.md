@@ -44,8 +44,8 @@ title: "Home"
       <img src="/assets/img/profile.JPG" alt="Profile photo of Apurva (replace this image file with your own).">
     </div>
     <div class="hero-meta">
-      <span>Machine Learning Engineer · Document Intelligence &amp; Fraud Detection</span>
-      <span>MS in Data Science (NYU) · MSCS (Westcliff, in progress)</span>
+      <span>ML/AI Engineer · Document Intelligence &amp; Fraud Detection</span>
+      <span>MS in Data Science (NYU)</span>
     </div>
   </div>
 </section>
