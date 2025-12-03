@@ -10,7 +10,7 @@ title: "Home"
       <span>· AI Research & ML Engineering</span>
     </div>
     <h1 class="hero-main-title">
-      System‑2 reasoning, controllable representations &amp; planning in latent space.
+      Apurva Bhargava
     </h1>
     <p class="hero-subtitle">
       I work at the intersection of <strong>energy-based models</strong>, <strong>JEPAs</strong>,
@@ -41,7 +41,7 @@ title: "Home"
 
   <div class="hero-profile">
     <div class="profile-frame">
-      <img src="/assets/img/profile.jpg" alt="Profile photo of Apurva (replace this image file with your own).">
+      <img src="/assets/img/profile.jpeg" alt="Profile photo of Apurva (replace this image file with your own).">
     </div>
     <div class="hero-meta">
       <span>Machine Learning Engineer · Document Intelligence &amp; Fraud Detection</span>
