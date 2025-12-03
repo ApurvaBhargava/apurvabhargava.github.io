@@ -12,27 +12,22 @@ title: "Home"
       Apurva Bhargava
     </h1>
     <p class="hero-subtitle">
-      I work at the intersection of <strong>energy-based models</strong>, <strong>JEPAs</strong>,
-      and <strong>model predictive control</strong>, with a focus on controllable reasoning, disentangled
-      latent spaces, and practical ML systems in production.
+      I am a machine learning engineer at Informed, Inc., an AI fintech startup in Bay Area. I work on document intelligence, fraud detection and representation learning problems. I'm interested in how models represent structure, reason about tasks, and behave beyond pattern-matching. I'm currently preparing for PhD study in areas at the intersection of reasoning, latent spaces, and world modeling.
+<br>
+Before this, I completed my master’s in data science at NYU and my undergraduate degree in computer science. I have since worked in industry building large-scale ML pipelines: OCR systems, layout-aware models, anomaly detection networks and compliance-focused document anonymization workflows. I also briefly interned at IFF, Inc. solving logistics problems using AI. These projects taught me equal parts engineering discipline and cautious boldness.
+<br>
+Outside of research and work, I enjoy poetry, piano, history, classic comedies, anime and Trader Joe’s frozen section. I’m also known to overly enjoy cold coffee, winters and sandstorms— though not always in that order.
     </p>
-
-    <div class="hero-pill-row">
-      <span class="pill">Energy-Based Models</span>
-      <span class="pill">JEPA / World Models</span>
-      <span class="pill">System‑2 Reasoning</span>
-      <span class="pill">MPC &amp; Planning</span>
-    </div>
 
     <div class="hero-actions">
       <a class="btn btn-primary" href="/pdf/Apurva_Bhargava_CV.pdf" target="_blank" rel="noopener">
         View CV
       </a>
-      <a class="btn btn-ghost" href="/research">
-        Research interests
-      </a>
       <a class="btn btn-ghost" href="/projects">
-        Selected projects
+        Selected Projects
+      </a>
+      <a class="btn btn-ghost" href="/blog">
+        Read Substack
       </a>
     </div>
   </div>
