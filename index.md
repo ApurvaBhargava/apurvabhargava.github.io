@@ -16,9 +16,9 @@ title: "Home"
 
 <p>I'm interested in how models represent structure, reason about tasks, and behave beyond pattern-matching. I'm currently preparing for PhD study in areas at the intersection of reasoning, latent spaces, and world modeling.</p>
 
-<p>Before this, I completed my master’s in data science at NYU and my undergraduate degree in computer science. I also briefly interned at IFF, Inc. solving logistics problems using AI. These projects taught me equal parts engineering discipline and cautious boldness.</p>
+<p>Before this, I completed my master’s in data science at NYU and my undergraduate degree in computer science. I also briefly interned at IFF, Inc. solving logistics problems using ML. All of my industry experience has taught me equal parts engineering discipline and cautious boldness.</p>
 
-<p>Outside of research and work, I enjoy poetry, piano, history, classic comedies, anime and Trader Joe’s frozen section. I’m also known to overly enjoy cold coffee, winters and sandstorms— though not always in that order.</p>
+<p>Outside of research and work, I enjoy poetry, piano, history, classic comedies, anime and Trader Joe’s frozen section. I’m also known to overly enjoy cold coffee, winters, rain and sandstorms— though not always in that order.</p>
     </p>
 
     <div class="hero-actions">
