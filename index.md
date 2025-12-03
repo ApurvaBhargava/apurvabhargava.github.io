@@ -6,8 +6,7 @@ title: "Home"
 <section class="hero">
   <div>
     <div class="hero-highlight">
-      <span>Apurva Bhargava</span>
-      <span>· AI Research & ML Engineering</span>
+      <span> COGITO, ERGO COFFEE</span>
     </div>
     <h1 class="hero-main-title">
       Apurva Bhargava
@@ -23,7 +22,6 @@ title: "Home"
       <span class="pill">JEPA / World Models</span>
       <span class="pill">System‑2 Reasoning</span>
       <span class="pill">MPC &amp; Planning</span>
-      <span class="pill">Document Intelligence</span>
     </div>
 
     <div class="hero-actions">
