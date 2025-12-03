@@ -542,7 +542,7 @@ body.theme-dark .btn-ghost {
   }
 }
 
-/* 2×2 Blog Grid */
+/* Substack 2×2 Blog Grid */
 .article-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -555,8 +555,8 @@ body.theme-dark .btn-ghost {
 .article-card.image-only {
   display: block;
   width: 100%;
-  max-width: 500px;               /* N value (choose your size) */
-  aspect-ratio: 1 / 1;            /* makes it perfectly square */
+  max-width: 500px;
+  aspect-ratio: 1 / 1;
   
   border-radius: 24px;
   overflow: hidden;
@@ -576,7 +576,49 @@ body.theme-dark .btn-ghost {
 .article-card-img {
   width: 100%;
   height: 100%;
-  object-fit: contain;            /* SHOW FULL IMAGE — no cropping */
+  object-fit: contain;
   border-radius: 24px;
-  background: var(--bg-elevated); /* fills empty space cleanly */
+  background: var(--bg-elevated);
 }
+
+/* === POETRY GRID === */
+.poetry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.8rem;
+  margin-top: 1.5rem;
+}
+
+/* Card container */
+.poem-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  gap: 0.6rem;
+}
+
+/* Poem Image */
+.poem-img {
+  width: 100%;
+  height: 160px;                 /* small consistent height */
+  object-fit: cover;             /* makes them uniform */
+  border-radius: 18px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+}
+
+.poem-card:hover .poem-img {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 38px rgba(15, 23, 42, 0.12);
+}
+
+/* Poem Title */
+.poem-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.3;
+  padding-left: 4px;
+}
+
