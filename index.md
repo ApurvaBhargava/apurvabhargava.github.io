@@ -41,7 +41,7 @@ title: "Home"
 
   <div class="hero-profile">
     <div class="profile-frame">
-      <img src="/assets/img/profile.jpeg" alt="Profile photo of Apurva (replace this image file with your own).">
+      <img src="/assets/img/profile.jpg" alt="Profile photo of Apurva (replace this image file with your own).">
     </div>
     <div class="hero-meta">
       <span>Machine Learning Engineer · Document Intelligence &amp; Fraud Detection</span>
