@@ -40,7 +40,7 @@ subtitle: "Selected academic and independent work"
       Created a novel user-aware gender reinflection + translation model that both translates and reinflects the gender as specified; also built two gendered parallel corpora (English-French and English-Spanish); the MLE and sequence-to-sequence GRU models implemented using PyTorch achieved >95% precision and >83% recall.
     </p>
     <div class="project-links">
-      <a href=https://github.com/ApurvaBhargava/gender-reinflect-nlp-project" target="_blank">GitHub →</a>
+      <a href="https://github.com/ApurvaBhargava/gender-reinflect-nlp-project" target="_blank">GitHub →</a>
       <a href="https://github.com/ApurvaBhargava/gender-reinflect-nlp-project/blob/master/NLP_Project_Report.pdf" target="_blank">Write-up →</a>
     </div>
   </div>
@@ -53,7 +53,7 @@ subtitle: "Selected academic and independent work"
       Built an MLP function approximator over SinGAN in Python to arbitrarily query a low resolution image for real-valued edge co-ordinates to perform super-resolution; this was achieved by substituting the SinGAN generators with autoencoders and feeding the encodings to an MLP to predict pixel outputs from input coordinates.
     </p>
     <div class="project-links">
-      <a href=https://github.com/ApurvaBhargava/SinGAN_MLP_approximator" target="_blank">GitHub →</a>
+      <a href="https://github.com/ApurvaBhargava/SinGAN_MLP_approximator" target="_blank">GitHub →</a>
       <a href="https://github.com/ApurvaBhargava/SinGAN_MLP_approximator/blob/master/3001ComputerVision%20Report.pdf" target="_blank">Write-up →</a>
     </div>
   </div>
