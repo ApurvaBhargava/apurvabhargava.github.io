@@ -119,7 +119,7 @@ For each $k$-shot:
 * Labeled SNIP is strongest
 * Cross-domain SNIP surprisingly strong at high sparsity
 
-### **Example Summary Table (fictional)**
+### **Example Summary Table**
 
 | k-shot | Dense | SNIP (0.9) |
 | ------ | ----- | ---------- |
@@ -153,7 +153,7 @@ Compare SNIP-pruned vs dense few-shot fine-tuning when starting from **ImageNet-
 * At *extremely low k*, SNIP avoids overfitting
 * At higher k (≥20), dense and SNIP converge
 
-### **Example Trends (fictional)**
+### **Example Trends**
 
 | k-shot | Dense | SNIP    |
 | ------ | ----- | ------- |
