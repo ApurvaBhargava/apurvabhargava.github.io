@@ -263,23 +263,23 @@ SNIP finds more meaningful sparse subnetworks, leaving more capacity for future 
 
 Across all experiments, SNIP demonstrates:
 
-### **✔ Better low-data generalization**
+### **Better low-data generalization**
 
 by enforcing sparse, relevant computation paths.
 
-### **✔ Better transferability**
+### **Better transferability**
 
 especially for extreme few-shot adaptation.
 
-### **✔ Superior continual learning performance**
+### **Superior continual learning performance**
 
 when used as an importance measure vs Fisher.
 
-### **✔ Strong synergy with structured prune-and-free frameworks**
+### **Strong synergy with structured prune-and-free frameworks**
 
 like PackNet.
 
-### **✔ Consistency across multiple architectures**
+### **Consistency across multiple architectures**
 
 ResNet-18, ResNet-20, VGG-11, WRN-16-2, SimpleConvNet.
 
