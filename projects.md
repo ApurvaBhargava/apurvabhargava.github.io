@@ -8,6 +8,32 @@ subtitle: "Selected academic and independent work"
 
   <!-- PROJECT 1 -->
   <div class="project-card">
+    <img src="/assets/img/projects/minigrid3d.jpg" class="project-img" alt="">
+    <h3 class="project-title">JEPA-Driven Planning and Disentangled Control in MiniGrid/BabyAI</h3>
+    <p class="project-desc">
+      Built an experimental pipeline using MiniGrid/BabyAI to train JEPA-style latent-space predictors combined with Model Predictive Control, and applied disentanglement methods to achieve fine-grained control over agent behaviors in compositional tasks.
+    </p>
+    <div class="project-links">
+      <a href="https://github.com/ApurvaBhargava/minigrid-latent-planning-disentangled" target="_blank">GitHub →</a>
+      <a href="https://apurvabhargava.github.io/writeups/minigrid-latent-planning-disentangled" target="_blank">Write-up →</a>
+    </div>
+  </div>
+
+  <!-- PROJECT 2 -->
+  <div class="project-card">
+    <img src="/assets/img/projects/pruning.png" class="project-img" alt="">
+    <h3 class="project-title">SNIP Pruning for Few-Shot Generalization and Continual Learning</h3>
+    <p class="project-desc">
+      Built a comprehensive empirical study of SNIP pruning for few-shot learning, transfer learning, and continual learning on CIFAR-100. The project benchmarks SNIP against dense baselines, pretrained models, EWC, and PackNet across multiple CNN architectures. Results show that SNIP improves low-data generalization and significantly mitigates catastrophic forgetting when used as an importance measure or pruning strategy.
+    </p>
+    <div class="project-links">
+      <a href="https://github.com/ApurvaBhargava/snip-multitask-fewshot" target="_blank">GitHub →</a>
+      <a href="https://apurvabhargava.github.io/writeups/snip-multitask-fewshot" target="_blank">Write-up →</a>
+    </div>
+  </div>
+
+  <!-- PROJECT 3 -->
+  <div class="project-card">
     <img src="/assets/img/projects/dementia.png" class="project-img" alt="">
     <h3 class="project-title">Semantic Cognition in Dense Convolutional Networks</h3>
     <p class="project-desc">
@@ -19,7 +45,7 @@ subtitle: "Selected academic and independent work"
     </div>
   </div>
 
-  <!-- PROJECT 2 -->
+  <!-- PROJECT 4 -->
   <div class="project-card">
     <img src="/assets/img/projects/optimal.png" class="project-img" alt="">
     <h3 class="project-title">Optimal Representative Training Subset Selection</h3>
@@ -32,7 +58,7 @@ subtitle: "Selected academic and independent work"
     </div>
   </div>
 
-  <!-- PROJECT 3 -->
+  <!-- PROJECT 5 -->
   <div class="project-card">
     <img src="/assets/img/projects/gender.png" class="project-img" alt="">
     <h3 class="project-title">Gender Reinflection in Machine Translation (English to French and Spanish)</h3>
@@ -45,7 +71,7 @@ subtitle: "Selected academic and independent work"
     </div>
   </div>
 
-  <!-- PROJECT 4 -->
+  <!-- PROJECT 6 -->
   <div class="project-card">
     <img src="/assets/img/projects/singan.png" class="project-img" alt="">
     <h3 class="project-title">Edge Selective Super Resolution using SinGAN</h3>
