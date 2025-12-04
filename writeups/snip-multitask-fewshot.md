@@ -1,12 +1,6 @@
----
-
 # **SNIP-Enhanced Few-Shot Learning & Continual Learning**
 
-### *A systematic empirical study using CIFAR-100 and modern CNN backbones*
-
----
-
-# **1. Introduction**
+# Introduction
 
 Modern deep neural networks are powerful but often **data-hungry** and **catastrophically forgetful**.
 This project investigates whether **SNIP**, a gradient-based one-shot pruning method, can improve:
@@ -28,11 +22,9 @@ Using **CIFAR-100** as the primary dataset, we test both **few-shot classificati
 
 ---
 
-# **2. Background and Mathematical Foundations**
+# **Background and Mathematical Foundations**
 
-## **2.1 SNIP: Single-Shot Network Pruning**
-
-SNIP (Lee et al., 2019) evaluates each parameter's sensitivity to the loss at initialization:
+SNIP or Single-Shot Network Pruning (Lee et al., 2019) evaluates each parameter's sensitivity to the loss at initialization:
 
 $$
 s_i = \left| \frac{\partial \mathcal{L}}{\partial \theta_i} \cdot \theta_i \right|
@@ -63,7 +55,7 @@ We evaluate 3 SNIP variants:
 
 ---
 
-# **3. Experimental Setup**
+# **Experimental Setup**
 
 ### **Dataset**
 
@@ -94,11 +86,11 @@ We report:
 
 ---
 
-# **4. Experiments**
+# **Experiments**
 
 ---
 
-# **4.1 Experiment 1 — SNIP Improves Few-Shot Generalization (No Pretraining)**
+## **Experiment 1 — SNIP Improves Few-Shot Generalization (No Pretraining)**
 
 ### **Goal**
 
@@ -140,9 +132,9 @@ For each $k$-shot:
 
 Pruning forces the network to operate with **only the most task-relevant parameters**, helping optimization in extremely data-limited settings.
 
----
 
-# **4.2 Experiment 2 — Few-Shot Transfer Learning with Pretrained Backbone**
+
+## **Experiment 2 — Few-Shot Transfer Learning with Pretrained Backbone**
 
 ### **Goal**
 
@@ -172,7 +164,7 @@ Compare SNIP-pruned vs dense few-shot fine-tuning when starting from **ImageNet-
 
 ---
 
-# **4.3 Experiment 3 — Reducing Catastrophic Forgetting with SNIP-EWC**
+## **Experiment 3 — Reducing Catastrophic Forgetting with SNIP-EWC**
 
 ### **Goal**
 
@@ -236,7 +228,7 @@ SNIP-EWC better preserves task-relevant parameters and reduces drift during new-
 
 ---
 
-# **4.4 Experiment 4 — SNIP-PackNet: Parameter Isolation via Sparse Masks**
+# **Experiment 4 — SNIP-PackNet: Parameter Isolation via Sparse Masks**
 
 PackNet (Mallya & Lazebnik, 2018):
 
@@ -267,7 +259,7 @@ SNIP finds more meaningful sparse subnetworks, leaving more capacity for future 
 
 ---
 
-# **5. Discussion**
+# **Discussion**
 
 Across all experiments, SNIP demonstrates:
 
@@ -293,7 +285,7 @@ ResNet-18, ResNet-20, VGG-11, WRN-16-2, SimpleConvNet.
 
 ---
 
-# **6. Conclusion**
+# **Conclusion**
 
 This project systematically evaluates SNIP across:
 
@@ -313,7 +305,7 @@ Future directions include:
 
 ---
 
-# **7. References**
+# **References**
 
 * Lee, N. et al., *SNIP: Single-Shot Network Pruning*, ICLR 2019.
 * Kirkpatrick, J. et al., *Overcoming Catastrophic Forgetting in Neural Networks*, PNAS 2017.
