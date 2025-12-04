@@ -1,50 +1,61 @@
 ---
 layout: page
 title: "Selected projects"
-subtitle: "A mix of research prototypes, applied systems, and experiments in reasoning."
+subtitle: "Selected academic and independent work"
 ---
 
-## Research‑flavored projects
+<div class="projects-grid">
 
-### Energy‑Based Abstract Argumentation
-An experimental framework where each configuration of accepted/rejected arguments in an argumentation graph is assigned
-an energy. Low‑energy configurations correspond to “reasonable” sets of beliefs, allowing for soft, graded acceptance
-instead of brittle semantics. This is especially interesting for noisy text‑derived argument graphs.
+  <!-- PROJECT 1 -->
+  <div class="project-card">
+    <img src="/assets/img/projects/dementia.png" class="project-img" alt="">
+    <h3 class="project-title">Semantic Cognition in Dense Convolutional Networks</h3>
+    <p class="project-desc">
+      Studied the similarity between CNN-based architectures and human biological neural systems by simulating the pattern of learning (differentiating) and forgetting (dementia) with object recognition on CIFAR-100 as the cognitive task and DenseNet-BC as the model; explored category typicality and effect of distortion using class ranking correlations.
+    </p>
+    <div class="project-links">
+      <a href="https://github.com/ApurvaBhargava/semantic-cognition-convnets" target="_blank">GitHub →</a>
+      <a href="https://github.com/ApurvaBhargava/semantic-cognition-convnets/blob/master/Project%20Paper.pdf" target="_blank">Write-up →</a>
+    </div>
+  </div>
 
-- Focus: EBMs, structured prediction, argumentation  
-- Status: Prototype design, dataset curation, and modeling ideas in progress
+  <!-- PROJECT 2 -->
+  <div class="project-card">
+    <img src="/assets/img/projects/optimal.png" class="project-img" alt="">
+    <h3 class="project-title">Optimal Representative Training Subset Selection</h3>
+    <p class="project-desc">
+      Represented text documents in low-dimensional space and implemented statistical distance and sparse-coding-based methods in Python for selecting the most representative subsets, beating the active learning and topic model-based D-optimal design selection methods from literature.
+    </p>
+    <div class="project-links">
+      <a href="https://github.com/ApurvaBhargava/OptimalSets" target="_blank">GitHub →</a>
+      <a href="https://github.com/ApurvaBhargava/OptimalSets/blob/master/Project%20Paper.pdf" target="_blank">Write-up →</a>
+    </div>
+  </div>
 
----
+  <!-- PROJECT 3 -->
+  <div class="project-card">
+    <img src="/assets/img/projects/gender.png" class="project-img" alt="">
+    <h3 class="project-title">Gender Reinflection in Machine Translation (English to French and Spanish)</h3>
+    <p class="project-desc">
+      Created a novel user-aware gender reinflection + translation model that both translates and reinflects the gender as specified; also built two gendered parallel corpora (English-French and English-Spanish); the MLE and sequence-to-sequence GRU models implemented using PyTorch achieved >95% precision and >83% recall.
+    </p>
+    <div class="project-links">
+      <a href=https://github.com/ApurvaBhargava/gender-reinflect-nlp-project" target="_blank">GitHub →</a>
+      <a href="https://github.com/ApurvaBhargava/gender-reinflect-nlp-project/blob/master/NLP_Project_Report.pdf" target="_blank">Write-up →</a>
+    </div>
+  </div>
 
-### JEPA‑Style World Model with MPC‑like Control
-Toy experiments in small grid‑worlds where a JEPA learns a latent representation of the environment, and a simple
-planning loop searches over latent futures to reach a goal (e.g., a key, a door). The aim is to tease apart “world
-understanding” from “policy” and test ideas about factored latent spaces.
+  <!-- PROJECT 4 -->
+  <div class="project-card">
+    <img src="/assets/img/projects/singan.png" class="project-img" alt="">
+    <h3 class="project-title">Edge Selective Super Resolution using SinGAN</h3>
+    <p class="project-desc">
+      Built an MLP function approximator over SinGAN in Python to arbitrarily query a low resolution image for real-valued edge co-ordinates to perform super-resolution; this was achieved by substituting the SinGAN generators with autoencoders and feeding the encodings to an MLP to predict pixel outputs from input coordinates.
+    </p>
+    <div class="project-links">
+      <a href=https://github.com/ApurvaBhargava/SinGAN_MLP_approximator" target="_blank">GitHub →</a>
+      <a href="https://github.com/ApurvaBhargava/SinGAN_MLP_approximator/blob/master/3001ComputerVision%20Report.pdf" target="_blank">Write-up →</a>
+    </div>
+  </div>
 
-- Focus: JEPA, disentanglement, model predictive control  
-- Status: Early‑stage; ideal for scaling into a PhD‑level project
-
----
-
-## Applied / systems projects
-
-### Document Fraud Detection in Production
-Siamese and metric‑learning based models trained on examples of “good” vs “suspicious” document fonts and layouts to
-flag anomalous paystubs and bank statements. Integrated with rule‑based checks and human review pipelines.
-
-- Focus: Representation learning, anomaly detection, MLOps  
-- Status: Deployed and iterated in industry
-
----
-
-### Food Aid Optimization System
-A three‑component system for social good: demand forecasting, inventory optimization, and vehicle routing, designed to
-support organizations delivering meals to elderly, disabled, and low‑income populations.
-
-- Focus: Forecasting, prescriptive analytics, routing algorithms  
-- Status: Conceptual + analytical prototype
-
----
-
-If you’d like more details or code for any project, I am happy to share a cleaned‑up version on
-<a href="https://github.com/ApurvaBhargava" target="_blank" rel="noopener">GitHub</a> or via email.
+</div>

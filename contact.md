@@ -1,14 +1,10 @@
 ---
 layout: page
 title: "Contact"
-subtitle: "The easiest ways to reach me."
+subtitle: ""
 ---
 
-I am open to conversations about:
-
-- Research collaborations in EBMs, JEPA/world models, and latent‑space planning  
-- PhD opportunities aligned with structured reasoning and representation learning  
-- Applied ML problems in document intelligence, fraud detection, or optimization
+I am open to conversations about research (EBMs, JEPA, world models, latent-space planning, VAEs, diffusion models), applied ML work (document intelligence, fraud detection), or anything you are exploring in this space. And for anyone currently navigating job search or applying to master’s programs, I am always glad to help.
 
 You can reach me at:
 
@@ -18,5 +14,3 @@ You can reach me at:
   <li>🐙 <a href="https://github.com/ApurvaBhargava" target="_blank" rel="noopener">GitHub</a></li>
 </ul>
 
-If you prefer asynchronous discussions, feel free to send a short note describing your interests or questions, and I’ll
-do my best to respond thoughtfully.
