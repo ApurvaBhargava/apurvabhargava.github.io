@@ -19,19 +19,6 @@ subtitle: "Selected academic and independent work"
     </div>
   </div>
 
-  <!-- PROJECT 2 -->
-  <div class="project-card">
-    <img src="/assets/img/projects/pruning.png" class="project-img" alt="">
-    <h3 class="project-title">SNIP Pruning for Few-Shot Generalization and Continual Learning</h3>
-    <p class="project-desc">
-      Built a comprehensive empirical study of SNIP pruning for few-shot learning, transfer learning, and continual learning on CIFAR-100. The project benchmarks SNIP against dense baselines, pretrained models, EWC, and PackNet across multiple CNN architectures. Results show that SNIP improves low-data generalization and significantly mitigates catastrophic forgetting when used as an importance measure or pruning strategy.
-    </p>
-    <div class="project-links">
-      <a href="https://github.com/ApurvaBhargava/snip-multitask-fewshot" target="_blank">GitHub →</a>
-      <a href="https://apurvabhargava.github.io/writeups/snip-multitask-fewshot" target="_blank">Write-up →</a>
-    </div>
-  </div>
-
   <!-- PROJECT 3 -->
   <div class="project-card">
     <img src="/assets/img/projects/dementia.png" class="project-img" alt="">
@@ -68,6 +55,19 @@ subtitle: "Selected academic and independent work"
     <div class="project-links">
       <a href="https://github.com/ApurvaBhargava/gender-reinflect-nlp-project" target="_blank">GitHub →</a>
       <a href="https://github.com/ApurvaBhargava/gender-reinflect-nlp-project/blob/master/NLP_Project_Report.pdf" target="_blank">Write-up →</a>
+    </div>
+  </div>
+
+   <!-- PROJECT 2 -->
+  <div class="project-card">
+    <img src="/assets/img/projects/pruning.png" class="project-img" alt="">
+    <h3 class="project-title">SNIP Pruning for Few-Shot Generalization and Continual Learning</h3>
+    <p class="project-desc">
+      Built a comprehensive empirical study of SNIP pruning for few-shot learning, transfer learning, and continual learning on CIFAR-100. The project benchmarks SNIP against dense baselines, pretrained models, EWC, and PackNet across multiple CNN architectures. Results show that SNIP improves low-data generalization and significantly mitigates catastrophic forgetting when used as an importance measure or pruning strategy.
+    </p>
+    <div class="project-links">
+      <a href="https://github.com/ApurvaBhargava/snip-multitask-fewshot" target="_blank">GitHub →</a>
+      <a href="https://apurvabhargava.github.io/writeups/snip-multitask-fewshot" target="_blank">Write-up →</a>
     </div>
   </div>
 
