@@ -1,6 +1,7 @@
 ---
 layout: page
-title: "This project involves first training a standard Predictive Latent Dynamics Model (PLDM) using BFS optimal + noisy trajectories from the MiniGrid DoorKey 5×5 environment and analyzing its learned latent dynamics. Building on this baseline, I then introduces a disentangled PLDM variant to examine how separating latent factors influences representation quality and downstream planning performance."
+title: "Latent-space Planning and Disentangled Control in MiniGrid"
+subtitle: "This project involves first training a standard Predictive Latent Dynamics Model (PLDM) using BFS optimal + noisy trajectories from the MiniGrid DoorKey 5×5 environment and analyzing its learned latent dynamics. Building on this baseline, I then introduces a disentangled PLDM variant to examine how separating latent factors influences representation quality and downstream planning performance."
 ---
 
 ## Problem Setting
