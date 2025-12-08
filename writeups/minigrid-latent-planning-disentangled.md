@@ -115,17 +115,11 @@ Let (E) and (D) be encoder/decoder. Given a pair $(o_t, a_t, o_{t+1})$:
    $\hat{o}_t = D\big(z^{\text{stat}}*t, z_t^{\text{obj1}}, z_t^{\text{obj2}}, z_t^{\text{obj3}}\big), \quad \mathcal{L}*{\text{rec}} = \left| \hat{o}_t - o_t \right|^2.$
 
 Total training objective:
-[
-\mathcal{L}
-= \mathcal{L}_{\text{dyn}}
 
-* \lambda_{\text{inv}} , \mathcal{L}_{\text{inv}}
-* \lambda_{\text{rec}} , \mathcal{L}_{\text{rec}},
-  ]
-  with typical coefficients (good starting point):
+$\mathcal{L} = \mathcal{L}_{\text{dyn}} * \lambda_{\text{inv}} , \mathcal{L}_{\text{inv}} * \lambda_{\text{rec}} , \mathcal{L}_{\text{rec}}$, with typical coefficients (good starting point):
 
-- (\lambda_{\text{inv}} \approx 0.1)
-- (\lambda_{\text{rec}} \approx 1.0)
+- $(\lambda_{\text{inv}} \approx 0.1)$
+- $(\lambda_{\text{rec}} \approx 1.0)$
 
 VICReg itself uses:
 [
