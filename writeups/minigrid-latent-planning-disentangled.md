@@ -29,16 +29,13 @@ $z_t = E(o_t), \hat{z}_{t+1} = f(z_t, a_t)$.
 
 Training minimizes:
 
-**Dynamics loss** (self-supervised):
+**Dynamics loss** (self-supervised): $\mathcal{L}_{\text{dyn}} = \text{VICReg}(\hat{z}_{t+1}, z_{t+1})$, where VICReg combines:
 
-$\mathcal{L}_{\text{dyn}} = \text{VICReg}(\hat{z}_{t+1}, z_{t+1})$, where VICReg combines:
+* invariance (MSE similarity),
+* variance,
+* covariance regularization.
 
-  * invariance (MSE similarity),
-  * variance,
-  * covariance regularization.
-
-So:
-$\mathcal{L}_{\text{dyn}} = \lambda_{\text{sim}} , | \hat{z}_{t+1} - z_{t+1} |^2$
+So: $\mathcal{L}_{\text{dyn}} = \lambda_{\text{sim}} , | \hat{z}_{t+1} - z_{t+1} |^2$
 
 * $\lambda_{\text{var}} , \mathcal{L}_{\text{var}}(z)$
 * $\lambda_{\text{cov}} , \mathcal{L}_{\text{cov}}(z)$.
