@@ -122,13 +122,11 @@ $\mathcal{L} = \mathcal{L}_{\text{dyn}} * \lambda_{\text{inv}} , \mathcal{L}_{\t
 - $(\lambda_{\text{rec}} \approx 1.0)$
 
 VICReg itself uses:
-[
-\mathcal{L}*{\text{dyn}} =
-\lambda*{\text{sim}} , | \hat{z}^{\text{dyn}}*{t+1} - z^{\text{dyn}}*{t+1} |^2
 
-* \lambda_{\text{var}} \mathcal{L}_{\text{var}}(z^{\text{dyn}})
-* \lambda_{\text{cov}} \mathcal{L}_{\text{cov}}(z^{\text{dyn}}).
-  ]
+$ \mathcal{L}*{\text{dyn}} = \lambda*{\text{sim}} , | \hat{z}^{\text{dyn}}*{t+1} - z^{\text{dyn}}*{t+1} |^2 $
+
+* $\lambda_{\text{var}} \mathcal{L}_{\text{var}}(z^{\text{dyn}})$
+* $\lambda_{\text{cov}} \mathcal{L}_{\text{cov}}(z^{\text{dyn}})$.
 
 ### 2.3 Planning in Disentangled Latent Space
 
