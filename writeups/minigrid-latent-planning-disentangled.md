@@ -31,7 +31,7 @@ Training minimizes:
 
 * **Dynamics loss** (self-supervised):
   
-  $$\mathcal{L}_{\text{dyn}} = \text{VICReg}(\hat{z}_{t+1}, z_{t+1})$$,
+  $\mathcal{L}_{\text{dyn}} = \text{VICReg}(\hat{z}_{t+1}, z_{t+1})$,
   where VICReg combines:
 
   * invariance (MSE similarity),
@@ -123,7 +123,7 @@ $\mathcal{L} = \mathcal{L}_{\text{dyn}} * \lambda_{\text{inv}} , \mathcal{L}_{\t
 
 VICReg itself uses:
 
-$ \mathcal{L}_{\text{dyn}} = \lambda*{\text{sim}} , | \hat{z}^{\text{dyn}}_{t+1} - z^{\text{dyn}}_{t+1} |^2 $
+$ \mathcal{L}_{\text{dyn}} = \lambda_{\text{sim}} , | \hat{z}^{\text{dyn}}_{t+1} - z^{\text{dyn}}_{t+1} |^2 $
 
 * $\lambda_{\text{var}} \mathcal{L}_{\text{var}}(z^{\text{dyn}})$
 * $\lambda_{\text{cov}} \mathcal{L}_{\text{cov}}(z^{\text{dyn}})$.
