@@ -131,18 +131,14 @@ $ \mathcal{L}_{\text{dyn}} = \lambda_{\text{sim}} , | \hat{z}^{\text{dyn}}_{t+1}
 ### 2.3 Planning in Disentangled Latent Space
 
 For planning, I constructed a **planning latent** by concatenating the dynamics and object latents:
-[
-z_t^{\text{plan}}
-= \big[z_t^{\text{dyn}}, z_t^{\text{obj1}}, z_t^{\text{obj2}}, z_t^{\text{obj3}}\big].
-]
+
+$z_t^{\text{plan}} = \big[z_t^{\text{dyn}}, z_t^{\text{obj1}}, z_t^{\text{obj2}}, z_t^{\text{obj3}}\big].$
 
 Given a goal observation (o_{\text{goal}}), we obtain:
-[
-z_{\text{goal}}^{\text{plan}}
-= \big[z_{\text{goal}}^{\text{dyn}}, z_{\text{goal}}^{\text{obj1}}, z_{\text{goal}}^{\text{obj2}}, z_{\text{goal}}^{\text{obj3}}\big].
-]
 
-The CEM planner optimizes sequences of actions ((a_t,\dots,a_{t+H-1})) to minimize cumulative distance:
+$z_{\text{goal}}^{\text{plan}} = \big[z_{\text{goal}}^{\text{dyn}}, z_{\text{goal}}^{\text{obj1}}, z_{\text{goal}}^{\text{obj2}}, z_{\text{goal}}^{\text{obj3}}\big].$
+
+The CEM planner optimizes sequences of actions $(a_t,\dots,a_{t+H-1})$ to minimize cumulative distance:
 
 [
 \text{cost}({a_\tau})
