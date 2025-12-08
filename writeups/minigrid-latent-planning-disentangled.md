@@ -92,7 +92,7 @@ The key architectural constraints:
    $\hat{z}_{t+1}^{\text{dyn}} = f(z_t^{\text{dyn}}, a_t)$, while $z^{\text{stat}}$ and $z_t^{\text{obj}k}$ do not receive gradients through the predictor.
 
 2. **Static latent invariance:**
-   $z^{\text{stat}}*t \approx z^{\text{stat}}*{t+1} \quad \forall t \text{ in an episode},$ enforced by an invariance loss.
+   $z^{\text{stat}}_t \approx z^{\text{stat}}_{t+1} \quad \forall t \text{ in an episode},$ enforced by an invariance loss.
 
 3. **Decoder reconstructs observation from scene latents:**
    $\hat{o}_t = D\big(z^{\text{stat}}, z_t^{\text{obj1}}, z_t^{\text{obj2}}, z_t^{\text{obj3}}\big)$.
