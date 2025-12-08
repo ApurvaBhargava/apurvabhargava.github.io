@@ -96,7 +96,7 @@ Let (E) and (D) be encoder/decoder. Given a pair $(o_t, a_t, o_{t+1})$:
 
 2. **Static invariance loss on (z^{\text{stat}}):**
    
-   $\mathcal{L}\_{\text{inv}} = \left| z^{\text{stat}}\_t - z^{\text{stat}}\_{t+1} \right|^2.$
+   $\mathcal{L}\_{\text{inv}} = \mid z^{\text{stat}}\_t - z^{\text{stat}}\_{t+1} \mid^2.$
 
 3. **Reconstruction loss on pixel space:**
    
@@ -108,7 +108,7 @@ $\mathcal{L} = \mathcal{L}\_{\text{dyn}} + \lambda\_{\text{inv}} \cdot \mathcal{
 
 VICReg itself uses:
 
-$ \mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} , | \hat{z}^{\text{dyn}}\_{t+1} - z^{\text{dyn}}\_{t+1} |^2 $
+$ \mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} , \mid \hat{z}^{\text{dyn}}\_{t+1} - z^{\text{dyn}}\_{t+1} \mid^2 $
 
 * $\lambda_{\text{var}} \mathcal{L}_{\text{var}}(z^{\text{dyn}})$
 * $\lambda_{\text{cov}} \mathcal{L}_{\text{cov}}(z^{\text{dyn}})$.
