@@ -24,14 +24,14 @@ subtitle: "This project involves first training a reward-free JEPA planning mode
 
 The **vanilla model** uses a single latent vector
 $z_t \in \mathbb{R}^{d}$,
-with encoder and predictor
-$z_t = E(o_t), \quad \hat{z}_{t+1} = f(z_t, a_t)$.
+with encoder and predictor:
+$z_t = E(o_t), \hat{z}_{t+1} = f(z_t, a_t)$.
 
-Training typically minimizes:
+Training minimizes:
 
 * **Dynamics loss** (self-supervised):
   
-  $\mathcal{L}*{\text{dyn}} = \text{VICReg}( \hat{z}*{t+1}, z_{t+1} )$,
+  $$\mathcal{L}_{\text{dyn}} = \text{VICReg}(\hat{z}_{t+1}, z_{t+1})$$,
   where VICReg combines:
 
   * invariance (MSE similarity),
