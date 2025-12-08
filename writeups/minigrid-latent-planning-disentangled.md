@@ -52,7 +52,7 @@ This makes learning, prediction, and planning harder.
 
 I replace the monolithic latent $z_t$ with a **structured latent representation**:
 
-$z_t = \big(z_t^{\text{dyn}},, z^{\text{stat}},, z_t^{\text{obj1}},, z_t^{\text{obj2}},, z_t^{\text{obj3}}\big)$.
+$z_t = \big(z_t^{\text{dyn}}, z^{\text{stat}}, z_t^{\text{obj1}}, z_t^{\text{obj2}}, z_t^{\text{obj3}}\big)$.
 
 ### 2.1 Latent Decomposition
 
@@ -66,7 +66,7 @@ $z_t = \big(z_t^{\text{dyn}},, z^{\text{stat}},, z_t^{\text{obj1}},, z_t^{\text{
   * Encodes time-invariant background (walls, fixed layout).
   * Invariant within an episode.
 
-* **Object latents** $(z_t^{\text{obj}k} \in \mathbb{R}^{d_{\text{obj}}})$ for (k = 1,2,3)
+* **Object latents** $(z_t^{\text{obj}\_k} \in \mathbb{R}^{d_{\text{obj}}})$ for (k = 1,2,3)
 
   * Encode changing parts of the environment (key, door, goal, etc.).
   * Discover these factors **unsupervisedly** via reconstruction + dynamics pressure.
