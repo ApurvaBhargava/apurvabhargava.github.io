@@ -39,7 +39,7 @@ Training minimizes:
   * covariance regularization.
 
 So:
-$\mathcal{L}*{\text{dyn}} = \lambda*{\text{sim}} , | \hat{z}*{t+1} - z*{t+1} |^2$
+$\mathcal{L}_{\text{dyn}} = \lambda_{\text{sim}} , | \hat{z}_{t+1} - z_{t+1} |^2$
 
 * $\lambda_{\text{var}} , \mathcal{L}_{\text{var}}(z)$
 * $\lambda_{\text{cov}} , \mathcal{L}_{\text{cov}}(z)$.
@@ -111,11 +111,8 @@ Let (E) and (D) be encoder/decoder. Given a pair $(o_t, a_t, o_{t+1})$:
    $\mathcal{L}_{\text{inv}} = \left| z^{\text{stat}}*t - z^{\text{stat}}*{t+1} \right|^2.$
 
 3. **Reconstruction loss on pixel space:**
-   [
-   \hat{o}_t = D\big(z^{\text{stat}}*t, z_t^{\text{obj1}}, z_t^{\text{obj2}}, z_t^{\text{obj3}}\big), \quad
-   \mathcal{L}*{\text{rec}}
-   = \left| \hat{o}_t - o_t \right|^2.
-   ]
+   
+   $\hat{o}_t = D\big(z^{\text{stat}}*t, z_t^{\text{obj1}}, z_t^{\text{obj2}}, z_t^{\text{obj3}}\big), \quad \mathcal{L}*{\text{rec}} = \left| \hat{o}_t - o_t \right|^2.$
 
 Total training objective:
 [
