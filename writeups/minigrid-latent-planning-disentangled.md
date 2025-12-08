@@ -88,7 +88,7 @@ The key architectural constraints:
    $\hat{z}_{t+1}^{\text{dyn}} = f(z_t^{\text{dyn}}, a_t)$, while $z^{\text{stat}}$ and $z_t^{\text{obj}k}$ do not receive gradients through the predictor.
 
 2. **Static latent invariance:**
-   $z^{\text{stat}}_t \approx z^{\text{stat}}_{t+1} \quad \forall t \text{ in an episode},$ enforced by an invariance loss.
+   $z^{\text{stat}}\_t \approx z^{\text{stat}}\_{t+1} \quad \forall t \text{ in an episode},$ enforced by an invariance loss.
 
 3. **Decoder reconstructs observation from scene latents:**
    $\hat{o}_t = D\big(z^{\text{stat}}, z_t^{\text{obj1}}, z_t^{\text{obj2}}, z_t^{\text{obj3}}\big)$.
@@ -100,26 +100,26 @@ Let (E) and (D) be encoder/decoder. Given a pair $(o_t, a_t, o_{t+1})$:
 
 1. **Dynamics loss (VICReg) on $z^{\text{dyn}}$:**
    
-   $\mathcal{L}*{\text{dyn}} = \text{VICReg}\big(f(z_t^{\text{dyn}}, a_t),, z*{t+1}^{\text{dyn}}\big).$
+   $\mathcal{L}_{\text{dyn}} = \text{VICReg}\big(f(z_t^{\text{dyn}}, a_t),, z_{t+1}^{\text{dyn}}\big).$
 
 2. **Static invariance loss on (z^{\text{stat}}):**
    
-   $\mathcal{L}_{\text{inv}} = \left| z^{\text{stat}}*t - z^{\text{stat}}*{t+1} \right|^2.$
+   $\mathcal{L}_{\text{inv}} = \left| z^{\text{stat}}_t - z^{\text{stat}}_{t+1} \right|^2.$
 
 3. **Reconstruction loss on pixel space:**
    
-   $\hat{o}_t = D\big(z^{\text{stat}}*t, z_t^{\text{obj1}}, z_t^{\text{obj2}}, z_t^{\text{obj3}}\big), \quad \mathcal{L}*{\text{rec}} = \left| \hat{o}_t - o_t \right|^2.$
+   $\hat{o}_t = D\big(z^{\text{stat}}_t, z_t^{\text{obj1}}, z_t^{\text{obj2}}, z_t^{\text{obj3}}\big), \quad \mathcal{L}_{\text{rec}} = \left| \hat{o}_t - o_t \right|^2.$
 
 Total training objective:
 
-$\mathcal{L} = \mathcal{L}_{\text{dyn}} * \lambda_{\text{inv}} , \mathcal{L}_{\text{inv}} * \lambda_{\text{rec}} , \mathcal{L}_{\text{rec}}$, with typical coefficients (good starting point):
+$\mathcal{L} = \mathcal{L}\_{\text{dyn}} * \lambda\_{\text{inv}} , \mathcal{L}\_{\text{inv}} * \lambda\_{\text{rec}} , \mathcal{L}\_{\text{rec}}$, with typical coefficients (good starting point):
 
 - $(\lambda_{\text{inv}} \approx 0.1)$
 - $(\lambda_{\text{rec}} \approx 1.0)$
 
 VICReg itself uses:
 
-$ \mathcal{L}_{\text{dyn}} = \lambda_{\text{sim}} , | \hat{z}^{\text{dyn}}_{t+1} - z^{\text{dyn}}_{t+1} |^2 $
+$ \mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} , | \hat{z}^{\text{dyn}}\_{t+1} - z^{\text{dyn}}\_{t+1} |^2 $
 
 * $\lambda_{\text{var}} \mathcal{L}_{\text{var}}(z^{\text{dyn}})$
 * $\lambda_{\text{cov}} \mathcal{L}_{\text{cov}}(z^{\text{dyn}})$.
@@ -128,22 +128,20 @@ $ \mathcal{L}_{\text{dyn}} = \lambda_{\text{sim}} , | \hat{z}^{\text{dyn}}_{t+1}
 
 For planning, I constructed a **planning latent** by concatenating the dynamics and object latents:
 
-$z_t^{\text{plan}} = \big[z_t^{\text{dyn}}, z_t^{\text{obj1}}, z_t^{\text{obj2}}, z_t^{\text{obj3}}\big].$
+$z\_t^{\text{plan}} = \big[z\_t^{\text{dyn}}, z\_t^{\text{obj1}}, z\_t^{\text{obj2}}, z\_t^{\text{obj3}}\big].$
 
 Given a goal observation (o_{\text{goal}}), we obtain:
 
-$z_{\text{goal}}^{\text{plan}} = \big[z_{\text{goal}}^{\text{dyn}}, z_{\text{goal}}^{\text{obj1}}, z_{\text{goal}}^{\text{obj2}}, z_{\text{goal}}^{\text{obj3}}\big].$
+$z\_{\text{goal}}^{\text{plan}} = \big[z\_{\text{goal}}^{\text{dyn}}, z\_{\text{goal}}^{\text{obj1}}, z\_{\text{goal}}^{\text{obj2}}, z\_{\text{goal}}^{\text{obj3}}\big].$
 
 The CEM planner optimizes sequences of actions $(a_t,\dots,a_{t+H-1})$ to minimize cumulative distance:
 
-[
-\text{cost}({a_\tau})
-= \sum_{\tau=t}^{t+H-1} \left| z_\tau^{\text{plan}} - z_{\text{goal}}^{\text{plan}} \right|,
-]
+$
+\text{cost}({a\_\tau}) = \sum\_{\tau=t}^{t+H-1} \left| z\_\tau^{\text{plan}} - z\_{\text{goal}}^{\text{plan}} \right|,$
 subject to latent dynamics:
 
-* (z_{\tau+1}^{\text{dyn}} = f(z_{\tau}^{\text{dyn}}, a_\tau)),
-* (z_{\tau}^{\text{obj}k}) held fixed during imagined rollout (in the current implementation).
+* $z\_{\tau+1}^{\text{dyn}} = f(z\_{\tau}^{\text{dyn}}, a\_\tau)$,
+* $z\_{\tau}^{\text{obj}k}$ held fixed during imagined rollout (in the current implementation).
 
 Note: in real environment, object states change (door opens, key disappears), but planning uses a “locally fixed object state” approximation and replans frequently.
 
