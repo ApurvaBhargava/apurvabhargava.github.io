@@ -35,7 +35,7 @@ Training minimizes:
 * variance,
 * covariance regularization.
 
-So: $\mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} , | \hat{z}\_{t+1} - z\_{t+1} |^2$
+So: $\mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} , \mid \hat{z}\_{t+1} - z\_{t+1} \mid^2$
 
 * $\lambda_{\text{var}} , \mathcal{L}_{\text{var}}(z)$
 * $\lambda_{\text{cov}} , \mathcal{L}_{\text{cov}}(z)$.
