@@ -92,27 +92,23 @@ The key architectural constraints:
    $\hat{z}_{t+1}^{\text{dyn}} = f(z_t^{\text{dyn}}, a_t)$, while $z^{\text{stat}}$ and $z_t^{\text{obj}k}$ do not receive gradients through the predictor.
 
 2. **Static latent invariance:**
-   $z^{\text{stat}}*t \approx z^{\text{stat}}*{t+1} \quad \forall t \text{ in an episode}$, enforced by an invariance loss.
+   $z^{\text{stat}}*t \approx z^{\text{stat}}*{t+1} \quad \forall t \text{ in an episode},$ enforced by an invariance loss.
 
 3. **Decoder reconstructs observation from scene latents:**
    $\hat{o}_t = D\big(z^{\text{stat}}, z_t^{\text{obj1}}, z_t^{\text{obj2}}, z_t^{\text{obj3}}\big)$.
-   (I have omitted $z^{\text{dyn}}$ from the decoder to force scene factors into these slots; in the implementation, I use `z_stat + z_obj*` for recon.)
+   (I have omitted $z^{\text{dyn}}$ from the decoder to force scene factors into these slots; in the implementation, I use `z_stat + z_obj` for recon.)
 
 ### 2.2 Loss Functions
 
-Let (E) and (D) be encoder/decoder. Given a pair ((o_t, a_t, o_{t+1})):
+Let (E) and (D) be encoder/decoder. Given a pair $(o_t, a_t, o_{t+1})$:
 
-1. **Dynamics loss (VICReg) on (z^{\text{dyn}}):**
-   [
-   \mathcal{L}*{\text{dyn}}
-   = \text{VICReg}\big(f(z_t^{\text{dyn}}, a_t),, z*{t+1}^{\text{dyn}}\big).
-   ]
+1. **Dynamics loss (VICReg) on $z^{\text{dyn}}$:**
+   
+   $\mathcal{L}*{\text{dyn}} = \text{VICReg}\big(f(z_t^{\text{dyn}}, a_t),, z*{t+1}^{\text{dyn}}\big).$
 
 2. **Static invariance loss on (z^{\text{stat}}):**
-   [
-   \mathcal{L}_{\text{inv}}
-   = \left| z^{\text{stat}}*t - z^{\text{stat}}*{t+1} \right|^2.
-   ]
+   
+   $\mathcal{L}_{\text{inv}} = \left| z^{\text{stat}}*t - z^{\text{stat}}*{t+1} \right|^2.$
 
 3. **Reconstruction loss on pixel space:**
    [
