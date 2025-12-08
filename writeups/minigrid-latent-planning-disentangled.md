@@ -31,12 +31,12 @@ Training minimizes **dynamics loss** (self-supervised): $\mathcal{L}\_{\text{dyn
 * variance,
 * covariance regularization.
 
-So: $\mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} \cdot \mid \hat{z}\_{t+1} - z\_{t+1} \mid^2$ + $\lambda_{\text{var}} \cdot \mathcal{L}_{\text{var}}(z)$ + $\lambda_{\text{cov}} \cdot \mathcal{L}_{\text{cov}}(z)$.
+Thus, $\mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} \cdot \mid \hat{z}\_{t+1} - z\_{t+1} \mid^2$ + $\lambda\_{\text{var}} \cdot \mathcal{L}\_{\text{var}}(z)$ + $\lambda\_{\text{cov}} \cdot \mathcal{L}\_{\text{cov}}(z)$.
 
 
 Planning: I use a CEM planner in latent space to find action sequences $a_t,\dots,a_{t+H}$ that minimize some distance to a goal latent $z_{\text{goal}}$, using repeated application of (f).
 
-**Issue.** In DoorKey, the state has *heterogeneous structure* (agent, door, key, goal). A single vector (z) must entangle:
+**Issue.** In DoorKey problem, the state has *heterogeneous structure* (agent, door, key, goal). A single vector (z) must entangle:
 
 * agent position/orientation,
 * door locked/open state,
