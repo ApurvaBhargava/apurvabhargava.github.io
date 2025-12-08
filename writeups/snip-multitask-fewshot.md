@@ -1,8 +1,12 @@
-# **SNIP-Enhanced Few-Shot Learning & Continual Learning**
+---
+layout: page
+title: "SNIP-Based Few-Shot Learning/ Generalization and Continual (Sequential Multi-task) Learning"
+subtitle: "This project explores whether SNIP-based pruning can boost low-data generalization, transfer learning, and continual learning by creating sparse, task-efficient subnetworks."
+---
 
-# Introduction
+## Introduction
 
-Modern deep neural networks are powerful but often **data-hungry** and **catastrophically forgetful**.
+Modern deep neural networks are powerful but often data-hungry** and **catastrophically forgetful**.
 This project investigates whether **SNIP**, a gradient-based one-shot pruning method, can improve:
 
 1. **Few-shot / low-data generalization** (with and without pretraining)
@@ -22,7 +26,7 @@ Using **CIFAR-100** as the primary dataset, we test both **few-shot classificati
 
 ---
 
-# **Background and Mathematical Foundations**
+## **Background and Mathematical Foundations**
 
 SNIP or Single-Shot Network Pruning (Lee et al., 2019) evaluates each parameter's sensitivity to the loss at initialization:
 
@@ -55,7 +59,7 @@ We evaluate 3 SNIP variants:
 
 ---
 
-# **Experimental Setup**
+## **Experimental Setup**
 
 ### **Dataset**
 
@@ -86,13 +90,13 @@ We report:
 
 ---
 
-# **Experiments**
+## **Experiments**
 
 ---
 
-## **Experiment 1 — SNIP Improves Few-Shot Generalization (No Pretraining)**
+### **Experiment 1 — SNIP Improves Few-Shot Generalization (No Pretraining)**
 
-### **Goal**
+#### **Goal**
 
 Evaluate few-shot classification performance using:
 
@@ -100,7 +104,7 @@ Evaluate few-shot classification performance using:
 * SNIP at multiple sparsities
 * Labeled / Unlabeled / Cross-Domain SNIP variants
 
-### **Methodology**
+#### **Methodology**
 
 For each $k$-shot:
 
@@ -110,7 +114,7 @@ For each $k$-shot:
 4. Compare with dense model trained on same data
 5. Repeat over 5 runs and average
 
-### **Expected Trend**
+#### **Expected Trend**
 
 (Replace with your real numbers)
 
@@ -119,7 +123,7 @@ For each $k$-shot:
 * Labeled SNIP is strongest
 * Cross-domain SNIP surprisingly strong at high sparsity
 
-### **Example Summary Table**
+#### **Example Summary Table**
 
 | k-shot | Dense | SNIP (0.9) |
 | ------ | ----- | ---------- |
@@ -128,32 +132,32 @@ For each $k$-shot:
 | 5      | 29.4% | **33.1%**  |
 | 10     | 40.2% | **42.5%**  |
 
-### **Interpretation**
+#### **Interpretation**
 
 Pruning forces the network to operate with **only the most task-relevant parameters**, helping optimization in extremely data-limited settings.
 
 
 
-## **Experiment 2 — Few-Shot Transfer Learning with Pretrained Backbone**
+### **Experiment 2 — Few-Shot Transfer Learning with Pretrained Backbone**
 
-### **Goal**
+#### **Goal**
 
 Compare SNIP-pruned vs dense few-shot fine-tuning when starting from **ImageNet-pretrained ResNet-18**.
 
-### **Method**
+#### **Method**
 
 1. Load pretrained model
 2. Freeze early layers (optional)
 3. Apply SNIP saliency on the *adaptation dataset* (few-shot CIFAR-100)
 4. Fine-tune final 1–2 blocks
 
-### **Expected Trend**
+#### **Expected Trend**
 
 * Pretraining dominates performance, but SNIP still improves stability
 * At *extremely low k*, SNIP avoids overfitting
 * At higher k (≥20), dense and SNIP converge
 
-### **Example Trends**
+#### **Example Trends**
 
 | k-shot | Dense | SNIP    |
 | ------ | ----- | ------- |
@@ -164,13 +168,13 @@ Compare SNIP-pruned vs dense few-shot fine-tuning when starting from **ImageNet-
 
 ---
 
-## **Experiment 3 — Reducing Catastrophic Forgetting with SNIP-EWC**
+### **Experiment 3 — Reducing Catastrophic Forgetting with SNIP-EWC**
 
-### **Goal**
+#### **Goal**
 
 Test whether **SNIP saliency**, used as an importance weight in EWC, can reduce forgetting in sequential learning.
 
-### **Background: EWC**
+#### **Background: EWC**
 
 EWC penalty:
 
@@ -185,7 +189,7 @@ where:
 * $F_i$ = Fisher Information diagonal
 * $\theta_i^*$ = weights learned from previous task(s)
 
-### **SNIP-EWC Modification**
+#### **SNIP-EWC Modification**
 
 Replace Fisher $F_i$ with SNIP saliency:
 
@@ -202,17 +206,17 @@ $$
 * \lambda \sum_i F_i^{SNIP}(\theta_i - \theta_i^{*})^2
   $$
 
-### **Why it works**
+#### **Why it works**
 
 * SNIP measures **gradient flow sensitivity**, not log-prob curvature
 * More robust on CNNs, especially early layers
 * Better identifies parameters essential to previous tasks
 
-### **Dataset Setup**
+#### **Dataset Setup**
 
 CIFAR-100 split into **5 tasks × 20 classes**.
 
-### **Expected Results**
+#### **Expected Results**
 
 (Replace with your results)
 
@@ -222,13 +226,13 @@ CIFAR-100 split into **5 tasks × 20 classes**.
 | Fisher-EWC   | 31%              |
 | **SNIP-EWC** | **18%**          |
 
-### **Interpretation**
+#### **Interpretation**
 
 SNIP-EWC better preserves task-relevant parameters and reduces drift during new-task learning.
 
 ---
 
-# **Experiment 4 — SNIP-PackNet: Parameter Isolation via Sparse Masks**
+### **Experiment 4 — SNIP-PackNet: Parameter Isolation via Sparse Masks**
 
 PackNet (Mallya & Lazebnik, 2018):
 
@@ -238,7 +242,7 @@ PackNet (Mallya & Lazebnik, 2018):
 4. Train on Task 1 in remaining free weights
 5. Repeat
 
-### **Modification: SNIP-PackNet**
+#### **Modification: SNIP-PackNet**
 
 Replace magnitude pruning with SNIP saliency:
 
@@ -246,20 +250,20 @@ Replace magnitude pruning with SNIP saliency:
 * Better isolation between tasks
 * Lower backward transfer interference
 
-### **Expected Behavior**
+#### **Expected Behavior**
 
 | Method           | Forgetting ↓ | Final Accuracy ↑ |
 | ---------------- | ------------ | ---------------- |
 | PackNet          | Moderate     | Good             |
 | **SNIP-PackNet** | **Low**      | **Best**         |
 
-### **Interpretation**
+#### **Interpretation**
 
 SNIP finds more meaningful sparse subnetworks, leaving more capacity for future tasks and reducing interference.
 
 ---
 
-# **Discussion**
+## **Discussion**
 
 Across all experiments, SNIP demonstrates:
 
@@ -285,7 +289,7 @@ ResNet-18, ResNet-20, VGG-11, WRN-16-2, SimpleConvNet.
 
 ---
 
-# **Conclusion**
+## **Conclusion**
 
 This project systematically evaluates SNIP across:
 
@@ -305,7 +309,7 @@ Future directions include:
 
 ---
 
-# **References**
+## **References**
 
 * Lee, N. et al., *SNIP: Single-Shot Network Pruning*, ICLR 2019.
 * Kirkpatrick, J. et al., *Overcoming Catastrophic Forgetting in Neural Networks*, PNAS 2017.

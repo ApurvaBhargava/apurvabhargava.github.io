@@ -1,22 +1,22 @@
 ---
 layout: page
 title: "Latent-space Planning and Disentangled Control in MiniGrid"
-subtitle: "This project involves first training a standard Predictive Latent Dynamics Model (PLDM) using BFS optimal + noisy trajectories from the MiniGrid DoorKey 5×5 environment and analyzing its learned latent dynamics. Building on this baseline, I then introduces a disentangled PLDM variant to examine how separating latent factors influences representation quality and downstream planning performance."
+subtitle: "This project involves first training a reward-free Latent Dynamics Model (PLDM) (Sobal et al, 2025) using BFS optimal + noisy trajectories from the MiniGrid DoorKey 5×5 environment and analyzing its learned latent dynamics. Building on this baseline, I then introduce a disentangled PLDM variant to examine how separating latent factors influences representation quality and downstream planning performance."
 ---
 
 ## Problem Setting
 
-- **Environment**: MiniGrid DoorKey 5x5 (plus transfer to Empty / Dynamic-Obstacles variants). The agent must pick up a key, unlock a door, and reach the goal.
-- **Data**: ~1 200 random-play trajectories (24 576 subsequences of length 8 after windowing). Observations are 64×64 RGB arrays, actions are discrete (turn left/right, move, pickup, toggle, done).
-- **Goal**: Learn a latent world model that supports planning via a Cross-Entropy Method (CEM) optimiser without hand-coded state machines.
+- **Environment**: MiniGrid DoorKey 5x5 (plus transfer to Empty, Empty-Random and Obstacles variants). The agent must pick up a key, unlock a door, and reach the goal. Unlike the original paper's continuous navigation environments, this is a discrete setting.
+- **Data**: ~1200 trajectories (80% optimal and 20% random; 24576 subsequences of length 8 after windowing). Observations are 64×64 full-observation RGB arrays, actions are discrete (turn left, turn right, move forward, pickup, toggle, done).
+- **Goal**: Learn a latent world model that supports planning via a Cross-Entropy Method (CEM) optimizer without hand-coded state machines.
 
 ## Model Intuition
 
-| Component | Clean PLDM | Disentangled PLDM |
-|-----------|------------|-------------------|
-| Encoder   | CNN → 128-d latent `z` | CNN → `(z_dyn, z_stat)` (each 64-d) |
-| Dynamics  | Residual MLP conditioned on actions | Same, but only predicts `z_dyn` (agent-controllable factors) |
-| Planner   | CEM in latent space; minimise `‖z_t − z_goal‖` | Same, still acting only in `z_dyn` space |
+| Component | Simple PLDM (only one latent variable z) | Disentangled PLDM (z_dyn + z_stat) |  Disentangled PLDM (z_dyn + z_stat + z_obj) |
+|-----------|------------------------------------------|------------------------------------|---------------------------------------------|
+| Encoder   | CNN → 128-d latent `z` | CNN → `(z_dyn, z_stat)` (each 64-d) | CNN → `(z_dyn, z_obj, z_stat)` (each 64-d) |
+| Dynamics  | Residual MLP conditioned on actions | Same, but only predicts `z_dyn` (agent-controllable factors) | Represents agent controllable factors plus object changes |
+| Planner   | CEM in latent space; minimise `‖z_t − z_goal‖` | Same, still acting only in `z_dyn` space | Uses both z_dyn and z_obj as context |
 
 The disentangled variant aims to keep layout/door configuration in a static head (`z_stat`) while leaving agent-controllable variations (`z_dyn`) to the predictor and planner.
 
