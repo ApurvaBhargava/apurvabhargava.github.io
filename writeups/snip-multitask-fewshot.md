@@ -1,28 +1,28 @@
 ---
 layout: page
-title: "SNIP-Based Few-Shot Learning/ Generalization and Continual (Sequential Multi-task) Learning"
+title: "SNIP-Based Few-Shot Learning / Generalization and Continual (Sequential Multi-task) Learning"
 subtitle: "This project explores whether SNIP-based pruning can boost low-data generalization, transfer learning, and continual learning by creating sparse, task-efficient subnetworks."
 ---
 
 ## Introduction
 
-Modern deep neural networks are powerful but often data-hungry** and **catastrophically forgetful**.
-This project investigates whether **SNIP**, a gradient-based one-shot pruning method, can improve:
+Deep neural networks can model complex functions with high accuracy, yet their dependence on substantial amounts of training data and their tendency to catastrophically forget prior tasks during continual learning highlight fundamental limitations in their learning dynamics.
 
-1. **Few-shot / low-data generalization** (with and without pretraining)
-2. **Transfer learning in limited-data regimes**
-3. **Continual learning / catastrophic forgetting**
-4. **Parameter-efficient lifelong learning** via **SNIP-based PackNet**
+This project investigates whether SNIP, a gradient-based one-shot pruning method, can improve:
 
-We evaluate across a suite of CNNs:
+1. Few-shot / low-data generalization in un-pretrained models
+2. Few-shot / low-data generalization in pretrained settings (transfer learning)
+3. Reduction in catastrophic forgetting in continual learning by using SNIP saliency score in an EWC-style penalty
+4. Parameter-efficient conitnual learning via SNIP-based PackNet strategy
 
-* **ResNet-18** (main model)
-* **ResNet-20 (CIFAR-ResNet)**
-* **VGG-11**
-* **WideResNet-16-2**
-* **SimpleConvNet**
+The strategies are evaluated on the following models:
 
-Using **CIFAR-100** as the primary dataset, we test both **few-shot classification** and **incremental-task continual learning** (5 tasks × 20 classes each).
+* ResNet-18 (main model)
+* ResNet-20 (CIFAR-ResNet)
+* VGG-11
+* WideResNet-16-2
+
+Using **CIFAR-100** as the primary dataset, I test both **few-shot classification** and **incremental-task continual learning** (5 tasks × 20 classes each).
 
 ---
 
