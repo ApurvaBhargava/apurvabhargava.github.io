@@ -22,14 +22,14 @@ subtitle: "This project involves first training a reward-free JEPA planning mode
 
 ### 1.1 Vanilla Single-Latent Model
 
-The **vanilla model** uses a single latent vector
+The single-latent model uses a single latent vector
 $z_t \in \mathbb{R}^{d}$,
 with encoder and predictor:
 $z_t = E(o_t), \hat{z}_{t+1} = f(z_t, a_t)$.
 
 Training minimizes:
 
-**Dynamics loss** (self-supervised): $\mathcal{L}_{\text{dyn}} = \text{VICReg}(\hat{z}_{t+1}, z_{t+1})$, where VICReg combines:
+**Dynamics loss** (self-supervised): $\mathcal{L}_{\text{dyn}} = \text{VICReg}(\hat{z}_{t+1}, z_{t+1}),$ where VICReg combines:
 
 * invariance (MSE similarity),
 * variance,
