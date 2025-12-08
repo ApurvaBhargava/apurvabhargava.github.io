@@ -104,10 +104,7 @@ Let (E) and (D) be encoder/decoder. Given a pair $(o_t, a_t, o_{t+1})$:
 
 Total training objective:
 
-$\mathcal{L} = \mathcal{L}\_{\text{dyn}} * \lambda\_{\text{inv}} , \mathcal{L}\_{\text{inv}} * \lambda\_{\text{rec}} , \mathcal{L}\_{\text{rec}}$, with typical coefficients (good starting point):
-
-- $(\lambda_{\text{inv}} \approx 0.1)$
-- $(\lambda_{\text{rec}} \approx 1.0)$
+$\mathcal{L} = \mathcal{L}\_{\text{dyn}} + \lambda\_{\text{inv}} \cdot \mathcal{L}\_{\text{inv}} + \lambda\_{\text{rec}} \cdot \mathcal{L}\_{\text{rec}}$
 
 VICReg itself uses:
 
