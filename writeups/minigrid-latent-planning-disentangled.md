@@ -61,11 +61,9 @@ This makes learning, prediction, and planning harder.
 
 ## 2. Disentangled Latent World Model
 
-I replace the monolithic latent (z_t) with a **structured latent representation**:
+I replace the monolithic latent $z_t$ with a **structured latent representation**:
 
-[
-z_t = \big(z_t^{\text{dyn}},, z^{\text{stat}},, z_t^{\text{obj1}},, z_t^{\text{obj2}},, z_t^{\text{obj3}}\big).
-]
+$z_t = \big(z_t^{\text{dyn}},, z^{\text{stat}},, z_t^{\text{obj1}},, z_t^{\text{obj2}},, z_t^{\text{obj3}}\big)$.
 
 ### 2.1 Latent Decomposition
 
