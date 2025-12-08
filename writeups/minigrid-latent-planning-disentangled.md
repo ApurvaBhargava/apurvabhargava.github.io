@@ -8,36 +8,30 @@ subtitle: "This project involves first training a reward-free JEPA planning mode
 
 **Environment**: The environment is a MDP, specifically, MiniGrid DoorKey 5x5 (and transfer to Empty, Empty-Random and Obstacles variants). The agent must pick up a key, unlock a door, and reach the goal. Unlike the original paper's continuous navigation environments, this is a discrete setting.
 
-* True (hidden) state: $(s_t \in \mathcal{S})$
-* Observation: (o_t \in \mathbb{R}^{H \times W \times 3}) (RGB grid)
-* Action: (a_t \in \mathcal{A}) (discrete)
-* Transition: (s_{t+1} \sim P(s_{t+1} \mid s_t, a_t))
+* True (hidden) state: $s_t \in \mathcal{S}$
+* Observation: $o_t \in \mathbb{R}^{H \times W \times 3}$ (RGB grid)
+* Action: $(a_t \in \mathcal{A})$ (discrete)
+* Transition: $s_{t+1} \sim P(s_{t+1} \mid s_t, a_t)$
 
-**Data**: ~1200 trajectories (80% optimal and 20% random; 24576 subsequences of length 8 after windowing). Observations are 64×64 full-observation RGB arrays, actions are discrete (turn left, turn right, move forward, pickup, toggle, done).
+**Data**: ~1200 trajectories (80% optimal and 20% random; 24576 subsequences of length 8 after windowing). Observations are 64×64 → 40x40 (downsized) full-observation RGB arrays, actions are discrete (turn left, turn right, move forward, pickup, toggle, done).
 
 **Goal**: The goal is to learn a **latent world model** that supports planning:
 
-1. An encoder (E) maps observations to latent state (z_t).
+1. An encoder (E) maps observations to latent state $z_t$.
 2. A latent dynamics model (f) predicts next latent state from current latent and action.
 
 ### 1.1 Vanilla Single-Latent Model
 
 The **vanilla model** uses a single latent vector
-[
-z_t \in \mathbb{R}^{d},
-]
+$z_t \in \mathbb{R}^{d}$,
 with encoder and predictor
-[
-z_t = E(o_t), \quad
-\hat{z}_{t+1} = f(z_t, a_t).
-]
+$z_t = E(o_t), \quad \hat{z}_{t+1} = f(z_t, a_t)$.
 
 Training typically minimizes:
 
 * **Dynamics loss** (self-supervised):
-  [
-  \mathcal{L}*{\text{dyn}} = \text{VICReg}( \hat{z}*{t+1}, z_{t+1} ),
-  ]
+  
+  $\mathcal{L}*{\text{dyn}} = \text{VICReg}( \hat{z}*{t+1}, z_{t+1} )$,
   where VICReg combines:
 
   * invariance (MSE similarity),
