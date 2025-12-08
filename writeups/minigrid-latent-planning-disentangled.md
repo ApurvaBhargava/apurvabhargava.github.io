@@ -29,7 +29,7 @@ $z_t = E(o_t), \hat{z}_{t+1} = f(z_t, a_t)$.
 
 Training minimizes:
 
-**Dynamics loss** (self-supervised): $\mathcal{L}_{\text{dyn}} = \text{VICReg}(\hat{z}_{t+1}, z_{t+1}),$ where VICReg combines:
+**Dynamics loss** (self-supervised): $\mathcal{L}_{\text{dyn}} = \mathrm{VICReg}(\hat{z}_{t+1}, z_{t+1})$ where VICReg combines:
 
 * invariance (MSE similarity),
 * variance,
