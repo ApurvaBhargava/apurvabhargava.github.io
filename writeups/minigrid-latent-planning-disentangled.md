@@ -67,46 +67,36 @@ $z_t = \big(z_t^{\text{dyn}},, z^{\text{stat}},, z_t^{\text{obj1}},, z_t^{\text{
 
 ### 2.1 Latent Decomposition
 
-* **Dynamic latent** (z_t^{\text{dyn}} \in \mathbb{R}^{d_{\text{dyn}}})
+* **Dynamic latent** $(z_t^{\text{dyn}} \in \mathbb{R}^{d_{\text{dyn}}})$
 
   * Encodes agent-centric dynamic state (position, orientation, etc.).
   * Evolves with actions.
 
-* **Static latent** (z^{\text{stat}} \in \mathbb{R}^{d_{\text{stat}}})
+* **Static latent** $(z^{\text{stat}} \in \mathbb{R}^{d_{\text{stat}}})$
 
   * Encodes time-invariant background (walls, fixed layout).
   * Invariant within an episode.
 
-* **Object latents** (z_t^{\text{obj}k} \in \mathbb{R}^{d_{\text{obj}}}) for (k = 1,2,3)
+* **Object latents** $(z_t^{\text{obj}k} \in \mathbb{R}^{d_{\text{obj}}})$ for (k = 1,2,3)
 
   * Encode changing parts of the environment (key, door, goal, etc.).
   * Discover these factors **unsupervisedly** via reconstruction + dynamics pressure.
 
 The encoder can be written as:
-[
-(z_t^{\text{dyn}}, z^{\text{stat}}, z_t^{\text{obj1}}, z_t^{\text{obj2}}, z_t^{\text{obj3}})
-= E(o_t).
-]
+
+$ (z_t^{\text{dyn}}, z^{\text{stat}}, z_t^{\text{obj1}}, z_t^{\text{obj2}}, z_t^{\text{obj3}}) = E(o_t).$
 
 The key architectural constraints:
 
-1. **Predictor updates only (z^{\text{dyn}}):**
-   [
-   \hat{z}_{t+1}^{\text{dyn}} = f(z_t^{\text{dyn}}, a_t),
-   ]
-   while (z^{\text{stat}}) and (z_t^{\text{obj}k}) do not receive gradients through the predictor.
+1. **Predictor updates only $z^{\text{dyn}}$:**
+   $\hat{z}_{t+1}^{\text{dyn}} = f(z_t^{\text{dyn}}, a_t)$, while $z^{\text{stat}}$ and $z_t^{\text{obj}k}$ do not receive gradients through the predictor.
 
 2. **Static latent invariance:**
-   [
-   z^{\text{stat}}*t \approx z^{\text{stat}}*{t+1} \quad \forall t \text{ in an episode},
-   ]
-   enforced by an invariance loss.
+   $z^{\text{stat}}*t \approx z^{\text{stat}}*{t+1} \quad \forall t \text{ in an episode}$, enforced by an invariance loss.
 
 3. **Decoder reconstructs observation from scene latents:**
-   [
-   \hat{o}_t = D\big(z^{\text{stat}}, z_t^{\text{obj1}}, z_t^{\text{obj2}}, z_t^{\text{obj3}}\big).
-   ]
-   (I have omitted (z^{\text{dyn}}) from the decoder to force scene factors into these slots; in the implementation, I use `z_stat + z_obj*` for recon.)
+   $\hat{o}_t = D\big(z^{\text{stat}}, z_t^{\text{obj1}}, z_t^{\text{obj2}}, z_t^{\text{obj3}}\big)$.
+   (I have omitted $z^{\text{dyn}}$ from the decoder to force scene factors into these slots; in the implementation, I use `z_stat + z_obj*` for recon.)
 
 ### 2.2 Loss Functions
 
