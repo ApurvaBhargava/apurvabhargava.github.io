@@ -39,15 +39,15 @@ Training minimizes:
   * covariance regularization.
 
 So:
-[
+$$
 \mathcal{L}*{\text{dyn}}
 = \lambda*{\text{sim}} , | \hat{z}*{t+1} - z*{t+1} |^2
 
 * \lambda_{\text{var}} , \mathcal{L}_{\text{var}}(z)
 * \lambda_{\text{cov}} , \mathcal{L}_{\text{cov}}(z).
-  ]
+$$
 
-Planning: I use a CEM planner in latent space to find action sequences ((a_t,\dots,a_{t+H})) that minimize some distance to a goal latent (z_{\text{goal}}), using repeated application of (f).
+Planning: I use a CEM planner in latent space to find action sequences $a_t,\dots,a_{t+H}$ that minimize some distance to a goal latent $z_{\text{goal}}$, using repeated application of (f).
 
 **Issue.** In DoorKey, the state has *heterogeneous structure* (agent, door, key, goal). A single vector (z) must entangle:
 
