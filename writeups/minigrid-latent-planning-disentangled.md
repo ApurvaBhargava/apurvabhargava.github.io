@@ -294,7 +294,7 @@ Training for at least as many epochs as the vanilla model is important (e.g. 100
 
 ## 5. Further Ways to Improve Performance
 
-Assuming the current disentangled model is already outperforming the vanilla baseline, here are some directions to push it further.
+Considering the current disentangled model is already outperforming the vanilla baseline, here are some directions to push it further.
 
 ### 5.1 Model Object Dynamics Explicitly
 
