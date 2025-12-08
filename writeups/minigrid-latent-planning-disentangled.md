@@ -100,7 +100,7 @@ Let (E) and (D) be encoder/decoder. Given a pair $(o_t, a_t, o_{t+1})$:
 
 3. **Reconstruction loss on pixel space:**
    
-   $\hat{o}\_t = D\big(z^{\text{stat}}\_t, z\_t^{\text{obj1}}, z\_t^{\text{obj2}}, z\_t^{\text{obj3}}\big), \quad \mathcal{L}\_{\text{rec}} = \left| \hat{o}\_t - o\_t \right|^2.$
+   $\hat{o}\_t = D\big(z^{\text{stat}}\_t, z\_t^{\text{obj1}}, z\_t^{\text{obj2}}, z\_t^{\text{obj3}}\big), \quad \mathcal{L}\_{\text{rec}} =\mid \hat{o}\_t - o\_t \mid^2.$
 
 Total training objective:
 
