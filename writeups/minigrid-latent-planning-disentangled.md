@@ -78,7 +78,8 @@ $ (z_t^{\text{dyn}}, z^{\text{stat}}, z_t^{\text{obj1}}, z_t^{\text{obj2}}, z_t^
 The key architectural constraints:
 
 1. **Predictor updates only $z^{\text{dyn}}$:**
-   $\hat{z}_{t+1}^{\text{dyn}} = f(z_t^{\text{dyn}}, a_t)$, while $z^{\text{stat}}$ and $z_t^{\text{obj}k}$ do not receive gradients through the predictor.
+
+$\hat{z}_{t+1}^{\text{dyn}} = f(z_t^{\text{dyn}}, a_t)$, while $z^{\text{stat}}$ and $z\_t^{\text{obj}\_k}$ do not receive gradients through the predictor.
 
 2. **Static latent invariance:**
    $z^{\text{stat}}\_t \approx z^{\text{stat}}\_{t+1} \quad \forall t \text{ in an episode},$ enforced by an invariance loss.
