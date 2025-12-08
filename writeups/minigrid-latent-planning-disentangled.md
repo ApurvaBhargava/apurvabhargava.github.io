@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Latent-space Planning and Disentangled Control in MiniGrid"
-subtitle: "This project involves first training a reward-free JEPA planning model based on Planning with Latent Dynamics Model (PLDM) (Sobal et al, 2025) using BFS optimal + noisy trajectories from the MiniGrid DoorKey 5×5 environment and analyzing its learned latent dynamics. Building on this baseline, I then introduce a disentangled PLDM variant to examine how separating latent factors influences representation quality and downstream planning performance."
+subtitle: "This project involves first training a reward-free JEPA planning model based on Planning with Latent Dynamics Model (PLDM) paper (Sobal et al, 2025) using BFS optimal + noisy trajectories from the MiniGrid DoorKey 5×5 environment and analyzing its learned latent dynamics. Building on this baseline, I then introduce a disentangled PLDM variant to examine how separating latent factors influences representation quality and downstream planning performance."
 ---
 
 ## 1. Problem Setting and Vanilla World Model
@@ -19,26 +19,19 @@ subtitle: "This project involves first training a reward-free JEPA planning mode
 
 1. An encoder (E) maps observations to latent state $z_t$.
 2. A latent dynamics model (f) predicts next latent state from current latent and action.
+3. A Cross-Entropy Method (CEM) optimizer without hand-coded state machines to find actions that reduce distance to goal in latent space.
 
 ### 1.1 Vanilla Single-Latent Model
 
-The single-latent model uses a single latent vector
-$z_t \in \mathbb{R}^{d}$,
-with encoder and predictor:
-$z_t = E(o_t), \hat{z}_{t+1} = f(z_t, a_t)$.
+The single-latent model uses a single latent vector $z_t \in \mathbb{R}^{d}$, with encoder and predictor: $z_t = E(o_t)$, $\hat{z}_{t+1} = f(z_t, a_t)$.
 
-Training minimizes:
-
-**Dynamics loss** (self-supervised): $\mathcal{L}\_{\text{dyn}} = \text{VICReg}(\hat{z}\_{t+1}, z_{t+1})$ where VICReg combines:
+Training minimizes **dynamics loss** (self-supervised): $\mathcal{L}\_{\text{dyn}} = \text{VICReg}(\hat{z}\_{t+1}, z_{t+1})$ where VICReg combines:
 
 * invariance (MSE similarity),
 * variance,
 * covariance regularization.
 
-So: $\mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} , \mid \hat{z}\_{t+1} - z\_{t+1} \mid^2$
-
-* $\lambda_{\text{var}} , \mathcal{L}_{\text{var}}(z)$
-* $\lambda_{\text{cov}} , \mathcal{L}_{\text{cov}}(z)$.
+So: $\mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} \cdot \mid \hat{z}\_{t+1} - z\_{t+1} \mid^2$ + $\lambda_{\text{var}} \cdot \mathcal{L}_{\text{var}}(z)$ + $\lambda_{\text{cov}} \cdot \mathcal{L}_{\text{cov}}(z)$.
 
 
 Planning: I use a CEM planner in latent space to find action sequences $a_t,\dots,a_{t+H}$ that minimize some distance to a goal latent $z_{\text{goal}}$, using repeated application of (f).
