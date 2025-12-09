@@ -49,7 +49,7 @@ Training minimizes **dynamics loss** (self-supervised): $\mathcal{L}\_{\text{dyn
 * variance (ensures that each latent dimension maintains sufficient variability across the batch. Without it, the model could trivially minimize the loss by collapsing all latent dimensions to a constant value. To prevent this collapse, it is enforced that the standard deviation of each coordinate is at least $\gamma$, typically $\gamma=1$. If a dimension’s batch std falls below this threshold, the penalty increases. In short, it encourages a spread-out latent space and prevents degenerate solutions where multiple dimensions carry no information),
 * covariance regularization (encourages different latent dimensions to be decorrelated. If two dimensions encode redundant information, their covariance will be high. By penalizing off-diagonal covariance terms, the loss pushes each latent dimension to encode distinct features. In short, it promotes disentanglement and independence across coordinates and reduces feature redundancy and stabilizes downstream planning).
 
-Thus, $\mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} \cdot \mid \hat{z}\_{t+1} - z\_{t+1} \mid^2$ + $\lambda\_{\text{var}} \cdot \mathcal{L}\_{\text{var}}(z)$ + $\lambda\_{\text{cov}} \cdot \mathcal{L}\_{\text{cov}}(z)$.
+Thus, $\mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} \cdot \lvert \hat{z}\_{t+1} - z\_{t+1} \rvert^2$ + $\lambda\_{\text{var}} \cdot \mathcal{L}\_{\text{var}}(z)$ + $\lambda\_{\text{cov}} \cdot \mathcal{L}\_{\text{cov}}(z)$.
 
 where $\mathcal{L}\_{\text{var}}(z) = \lambda\_{\text{std}} \sum\_{i} \max\left(0,\, \gamma - \sigma(z\_{:,i}) \right)$ and $\mathcal{L}\_{\text{cov}}(z) = \lambda\_{\text{cov}} \sum\_{i \neq j} \operatorname{cov}(z\_{:,i}, z\_{:,j})^{2}$
 
@@ -292,7 +292,7 @@ where $z_t$ mixes agent state, door state, etc. The geometry of this space may b
 In the disentangled model, the distance in $z^{\text{plan}}$-space more faithfully splits into:
 
 
-$\mid z\_t^{\text{plan}} - z\_{\text{goal}}^{\text{plan}} \mid \approx \mid z\_t^{\text{dyn}} - z\_{\text{goal}}^{\text{dyn}} \mid * \sum\_k \mid z\_t^{\text{obj}\_k} - z_{\text{goal}}^{\text{obj}\_k} \mid.$
+$\lvert z\_t^{\text{plan}} - z\_{\text{goal}}^{\text{plan}} \rvert \approx \lvert z\_t^{\text{dyn}} - z\_{\text{goal}}^{\text{dyn}} \rvert * \sum\_k \lvert z\_t^{\text{obj}\_k} - z_{\text{goal}}^{\text{obj}\_k} \rvert$.
 
 If the object slots indeed specialize (e.g. one for door, one for key, one for goal), then:
 
@@ -345,7 +345,7 @@ $\hat{z}*{t+1}^{\text{obj}\_k} = g\_k(z\_t^{\text{dyn}}, z\_t^{\text{obj}\_{1:3}
 
 and a loss:
 
-$\mathcal{L}\_{\text{obj-dyn}} = \sum\_k \mid \hat{z}\_{t+1}^{\text{obj}\_k} - z\_{t+1}^{\text{obj}\_k} \mid^2$.
+$\mathcal{L}\_{\text{obj-dyn}} = \sum\_k \lvert \hat{z}\_{t+1}^{\text{obj}\_k} - z\_{t+1}^{\text{obj}\_k} \rvert^2$.
 
 Then, during planning, I roll both $z^{\text{dyn}}$ and $z^{\text{obj}\_k}$ forward. This lets the model “imagine” picking up the key, opening the door, etc., entirely in latent space.
 
@@ -355,7 +355,7 @@ Instead of only matching one-step latent targets, I can unroll for (K) steps in 
 
 
 $\mathcal{L}\_{\text{multi-dyn}} = \sum\_{j=1}^K \gamma^{j-1}
-\mid \hat{z}\_{t+j}^{\text{dyn}} - z\_{t+j}^{\text{dyn}} \mid^2.$
+\lvert \hat{z}\_{t+j}^{\text{dyn}} - z\_{t+j}^{\text{dyn}} \rvert^2.$
 
 This encourages **long-horizon consistency**, directly improving planning stability.
 
@@ -365,7 +365,7 @@ Pixel MSE is simple but crude. Two upgrades:
 
 * **Perceptual loss** in a feature space (e.g. ConvNet features $\phi(\cdot)$):
   
-  $\mathcal{L}\_{\text{rec}}^{\text{perc}} = \mid\phi(\hat{o}\_t) - \phi(o\_t)\mid^2$,
+  $\mathcal{L}\_{\text{rec}}^{\text{perc}} = \lvert\phi(\hat{o}\_t) - \phi(o\_t)\rvert^2$,
   
 * Or **cross-entropy over discrete tiles** if I convert images into one-hot tile maps.
 
