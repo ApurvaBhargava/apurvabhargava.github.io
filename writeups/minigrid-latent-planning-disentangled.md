@@ -53,7 +53,7 @@ Thus, $\mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} \cdot \mid \hat{z}\_{t+
 
 <div style="display: table; width: 100%; margin: 0 auto;">
 
-  <div style="display: table-cell; padding-right: 0.5rem; vertical-align: top;">
+  <div style="display: table-cell; padding-right: 0.3rem; vertical-align: top;">
     <figure style="text-align: center; margin: 0;">
       <img src="/assets/img/writeups/training_curves_orig.png"
            style="width: 85%; height: auto;" alt="">
@@ -63,7 +63,7 @@ Thus, $\mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} \cdot \mid \hat{z}\_{t+
     </figure>
   </div>
 
-  <div style="display: table-cell; padding-left: 0.5rem; vertical-align: top;">
+  <div style="display: table-cell; padding-left: 0.3rem; vertical-align: top;">
     <figure style="text-align: center; margin: 0;">
       <img src="/assets/img/writeups/pca_orig.png"
            style="width: 100%; height: auto;" alt="">
@@ -78,6 +78,16 @@ Thus, $\mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} \cdot \mid \hat{z}\_{t+
 
 
 Planning: I use a CEM planner in latent space to find action sequences $a_t,\dots,a_{t+H}$ that minimize some distance to a goal latent $z_{\text{goal}}$, using repeated application of (f).
+
+Planning Procedure:
+
+1. Encode current observation and goal observation into latent space.
+2. Use a CEM planner (horizon 15, 500 samples, 50 elites) that:
+   - Samples candidate action sequences.
+   - Rolls them out through `predict_step` (which propagates only `z_dyn`).
+   - Scores sequences via latent distance to the goal (`‖z_dyn - z_dyn_goal‖`).
+   - Refits the action distribution to the elites and repeats.
+3. Execute the best action prefix in MiniGrid; optionally replan every few steps for robustness.
 
 <div style="display: flex; gap: 1.5rem; justify-content: center;">
   <!-- LEFT -->
@@ -97,13 +107,18 @@ Planning: I use a CEM planner in latent space to find action sequences $a_t,\dot
   </div>
 </div>
 
+The figures below illustrate how the agent’s success rate and efficiency change as we vary how often the planner re-computes its trajectory. Replanning every 6-9 steps yields the best performance: success rates remain high (peaking near 100%) while the number of steps stays relatively low. However, as replanning becomes infrequent (e.g., every 12–15 steps), the success rate drops sharply and the agent requires significantly more steps to reach the goal.
+
+
+These results highlight the importance of regular replanning in environments like MiniGrid DoorKey. Frequent replanning allows the latent dynamics model to correct accumulated errors and stay aligned with the true environment state, directly improving both reliability and sample efficiency.
+
 
 <div style="display: table; width: 100%; margin: 0 auto;">
 
   <div style="display: table-cell; padding-right: 0.5rem; vertical-align: top;">
     <figure style="text-align: center; margin: 0;">
       <img src="/assets/img/writeups/success_rate_orig.png"
-           style="width: 85%; height: auto;" alt="">
+           style="width: 100%; height: auto;" alt="">
       <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
         Success Rate vs Replan Frequency
       </figcaption>
