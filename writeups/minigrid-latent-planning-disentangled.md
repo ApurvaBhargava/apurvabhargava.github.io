@@ -137,13 +137,13 @@ Note: in real environment, object states change (door opens, key disappears), bu
 
 ### 3.1 Factorization of Latent Variables
 
-Informally, the true state (s_t) in DoorKey can be decomposed into factors:
+Informally, the true state $s_t$ in DoorKey can be decomposed into factors:
 
-* (s_t = (s_t^{\text{agent}}, s_t^{\text{door}}, s_t^{\text{key}}, s_t^{\text{goal}}, s^{\text{layout}})),
+$s\_t = (s\_t^{\text{agent}}, s\_t^{\text{door}}, s\_t^{\text{key}}, s\_t^{\text{goal}}, s\_t^{\text{layout}})$, where
 
-  * (s^{\text{layout}}): static over episode
-  * (s_t^{\text{door}}, s_t^{\text{key}}, s_t^{\text{goal}}): object-centric factors
-  * (s_t^{\text{agent}}): dynamic agent state
+  * $s^{\text{layout}}$: static over episode
+  * $s\_t^{\text{door}}, s\_t^{\text{key}}, s\_t^{\text{goal}}$: object-centric factors
+  * $s\_t^{\text{agent}}$: dynamic agent state
 
 Our latent decomposition is a *representation-theoretic* analogue:
 
