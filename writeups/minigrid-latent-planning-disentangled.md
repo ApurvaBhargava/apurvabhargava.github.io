@@ -106,7 +106,7 @@ Total training objective:
 
 $\mathcal{L} = \mathcal{L}\_{\text{dyn}} + \lambda\_{\text{inv}} \cdot \mathcal{L}\_{\text{inv}} + \lambda\_{\text{rec}} \cdot \mathcal{L}\_{\text{rec}}$
 
-VICReg itself uses:
+where, like before:
 
 $ \mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} \cdot \mid \hat{z}^{\text{dyn}}\_{t+1} - z^{\text{dyn}}\_{t+1} \mid^2 + \lambda\_{\text{var}} \cdot \mathcal{L}\_{\text{var}}(z^{\text{dyn}}) + \lambda\_{\text{cov}} \cdot \mathcal{L}\_{\text{cov}}(z^{\text{dyn}})$.
 
@@ -114,11 +114,11 @@ $ \mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} \cdot \mid \hat{z}^{\text{dy
 
 For planning, I constructed a **planning latent** by concatenating the dynamics and object latents:
 
-$z\_t^{\text{plan}} = \big[z\_t^{\text{dyn}}, z\_t^{\text{obj1}}, z\_t^{\text{obj2}}, z\_t^{\text{obj3}}\big].$
+$z\_t^{\text{plan}} = \big[z\_t^{\text{dyn}}, z\_t^{\text{obj\_1}}, z\_t^{\text{obj\_2}}, z\_t^{\text{obj\_3}}\big].$
 
-Given a goal observation (o_{\text{goal}}), we obtain:
+Given a goal observation $o_{\text{goal}}$, we obtain:
 
-$z\_{\text{goal}}^{\text{plan}} = \big[z\_{\text{goal}}^{\text{dyn}}, z\_{\text{goal}}^{\text{obj1}}, z\_{\text{goal}}^{\text{obj2}}, z\_{\text{goal}}^{\text{obj3}}\big].$
+$z\_{\text{goal}}^{\text{plan}} = \big[z\_{\text{goal}}^{\text{dyn}}, z\_{\text{goal}}^{\text{obj\_1}}, z\_{\text{goal}}^{\text{obj\_2}}, z\_{\text{goal}}^{\text{obj\_3}}\big].$
 
 The CEM planner optimizes sequences of actions $(a_t,\dots,a_{t+H-1})$ to minimize cumulative distance:
 
@@ -127,7 +127,7 @@ $
 subject to latent dynamics:
 
 * $z\_{\tau+1}^{\text{dyn}} = f(z\_{\tau}^{\text{dyn}}, a\_\tau)$,
-* $z\_{\tau}^{\text{obj}k}$ held fixed during imagined rollout (in the current implementation).
+* $z\_{\tau}^{\text{obj\_}k}$ held fixed during imagined rollout (in the current implementation).
 
 Note: in real environment, object states change (door opens, key disappears), but planning uses a “locally fixed object state” approximation and replans frequently.
 
