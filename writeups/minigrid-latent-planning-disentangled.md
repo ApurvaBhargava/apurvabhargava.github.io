@@ -39,6 +39,13 @@ subtitle: "This project involves first training a reward-free JEPA planning mode
 
 </div>
 
+<div style="text-align: center; margin: 1.5rem 0;">
+  <img src="/assets/img/writeups/gif_problem_optimal_path.png"
+       alt="Description"
+       style="max-width: 90%; height: auto;">
+</div>
+
+
 ### 1.1 Single-Latent Model
 
 The single-latent model uses a single latent vector $z_t \in \mathbb{R}^{d}$, with encoder and predictor: $z_t = E(o_t)$, $\hat{z}_{t+1} = f(z_t, a_t)$.
