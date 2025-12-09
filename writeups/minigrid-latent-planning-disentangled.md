@@ -139,17 +139,17 @@ Note: in real environment, object states change (door opens, key disappears), bu
 
 Informally, the true state $s_t$ in DoorKey can be decomposed into factors:
 
-$s\_t = (s\_t^{\text{agent}}, s\_t^{\text{door}}, s\_t^{\text{key}}, s\_t^{\text{goal}}, s\_t^{\text{layout}})$, where
+$s\_t = (s\_t^{\text{agent}}, s\_t^{\text{door}}, s\_t^{\text{key}}, s\_t^{\text{goal}}, s^{\text{layout}})$, where
 
   * $s^{\text{layout}}$: static over episode
   * $s\_t^{\text{door}}, s\_t^{\text{key}}, s\_t^{\text{goal}}$: object-centric factors
   * $s\_t^{\text{agent}}$: dynamic agent state
 
-Our latent decomposition is a *representation-theoretic* analogue:
+The latent decomposition is a *representation-theoretic* analogue:
 
-* (z_t^{\text{dyn}} \approx \phi(s_t^{\text{agent}}))
-* (z^{\text{stat}} \approx \psi(s^{\text{layout}}))
-* (z_t^{\text{obj}k} \approx \xi_k(s_t^{\text{door}}, s_t^{\text{key}}, s_t^{\text{goal}}))
+* $z_t^{\text{dyn}} \approx \phi(s\_t^{\text{agent}})$
+* $z^{\text{stat}} \approx \psi(s^{\text{layout}})$
+* $z\_t^{\text{obj}k} \approx \xi\_k(s\_t^{\text{door}}, s\_t^{\text{key}}, s\_t^{\text{goal}})$
 
 The **invariance loss** on (z^{\text{stat}}) enforces:
 [
