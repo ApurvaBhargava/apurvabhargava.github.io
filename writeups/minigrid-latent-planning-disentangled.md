@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Latent-space Planning and Disentangled Control in MiniGrid"
-subtitle: "This project involves first training a reward-free JEPA planning model based on Planning with Latent Dynamics Model (PLDM) paper (Sobal et al, 2025) using BFS optimal + noisy trajectories from the MiniGrid DoorKey 5×5 environment and analyzing its learned latent dynamics. Building on this baseline, I then introduce a disentangled PLDM variant to examine how separating latent factors influences representation quality and downstream planning performance."
+subtitle: "This project involves first training a reward-free JEPA planning model based on Planning with Latent Dynamics Model (PLDM) paper [(Sobal et al, 2025)](https://latent-planning.github.io) using BFS optimal + noisy trajectories from the MiniGrid DoorKey 5×5 environment and analyzing its learned latent dynamics. Building on this baseline, I then introduce a disentangled PLDM variant to examine how separating latent factors influences representation quality and downstream planning performance."
 ---
 
 ## 1. Problem Setting and Single-latent-variable World Model
@@ -46,10 +46,13 @@ The single-latent model uses a single latent vector $z_t \in \mathbb{R}^{d}$, wi
 Training minimizes **dynamics loss** (self-supervised): $\mathcal{L}\_{\text{dyn}} = \text{VICReg}(\hat{z}\_{t+1}, z_{t+1})$ where VICReg combines:
 
 * invariance (MSE similarity),
-* variance,
-* covariance regularization.
+* variance (ensures that each latent dimension maintains sufficient variability across the batch. Without it, the model could trivially minimize the loss by collapsing all latent dimensions to a constant value. To prevent this collapse, it is enforced that the standard deviation of each coordinate is at least γ, typically γ = 1. If a dimension’s batch std falls below this threshold, the penalty increases. In short, it encourages a spread-out latent space and prevents degenerate solutions where multiple dimensions carry no information),
+* covariance regularization (encourages different latent dimensions to be decorrelated. If two dimensions encode redundant information, their covariance will be high. By penalizing off-diagonal covariance terms, the loss pushes each latent dimension to encode distinct features. In short, it promotes disentanglement and independence across coordinates and reduces feature redundancy and stabilizes downstream planning).
 
 Thus, $\mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} \cdot \mid \hat{z}\_{t+1} - z\_{t+1} \mid^2$ + $\lambda\_{\text{var}} \cdot \mathcal{L}\_{\text{var}}(z)$ + $\lambda\_{\text{cov}} \cdot \mathcal{L}\_{\text{cov}}(z)$.
+
+where $\mathcal{L}\_{\text{var}}(z) = \lambda\_{\text{std}} \sum\_{i} \max\left(0,\, \gamma - \sigma(z\_{:,i}) \right)$ and $\mathcal{L}\_{\text{cov}}(z) = \lambda\_{\text{cov}} \sum\_{i \neq j} \operatorname{cov}(z\_{:,i}, z\_{:,j})^{2}$
+
 
 <div style="display: table; width: 100%; margin: 0 auto;">
 
@@ -77,9 +80,7 @@ Thus, $\mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} \cdot \mid \hat{z}\_{t+
 </div>
 
 
-Planning: I use a CEM planner in latent space to find action sequences $a_t,\dots,a_{t+H}$ that minimize some distance to a goal latent $z_{\text{goal}}$, using repeated application of (f).
-
-Planning Procedure:
+**Planning**: I use a CEM planner in latent space to find action sequences $a_t,\dots,a_{t+H}$ that minimize latent distance to a goal latent $z_{\text{goal}}$, using repeated application of (f). Planning Procedure:
 
 1. Encode current observation and goal observation into latent space.
 2. Use a CEM planner that:
@@ -87,7 +88,7 @@ Planning Procedure:
    - Rolls them out through `predict_step` (which propagates only `z_dyn`).
    - Scores sequences via latent distance to the goal (`‖z_dyn - z_dyn_goal‖`).
    - Refits the action distribution to the elites and repeats.
-3. Execute the best action prefix in MiniGrid; optionally replan every few steps for robustness.
+3. Execute the best action prefix in MiniGrid; optionally replan every few steps to avoid error accumulation.
 
 <div style="display: flex; gap: 1.5rem; justify-content: center;">
   <!-- LEFT -->
@@ -154,7 +155,7 @@ This makes learning, prediction, and planning harder.
 
 I replace the monolithic latent $z_t$ with a **structured latent representation**:
 
-$z_t = \big(z_t^{\text{dyn}}, z^{\text{stat}}, z_t^{\text{obj1}}, z_t^{\text{obj2}}, z_t^{\text{obj3}}\big)$.
+$z\_t = \big(z\_t^{\text{dyn}}, z^{\text{stat}}, z\_t^{\text{obj\_1}}, z\_t^{\text{obj\_2}}, z\_t^{\text{obj\_3}}\big)$.
 
 ### 2.1 Latent Decomposition
 
@@ -175,7 +176,7 @@ $z_t = \big(z_t^{\text{dyn}}, z^{\text{stat}}, z_t^{\text{obj1}}, z_t^{\text{obj
 
 The encoder can be written as:
 
-$ (z_t^{\text{dyn}}, z^{\text{stat}}, z_t^{\text{obj1}}, z_t^{\text{obj2}}, z_t^{\text{obj3}}) = E(o_t).$
+$ (z_t^{\text{dyn}}, z^{\text{stat}}, z_t^{\text{obj\_1}}, z_t^{\text{obj\_2}}, z_t^{\text{obj\_3}}) = E(o_t).$
 
 The key architectural constraints:
 
@@ -185,7 +186,7 @@ The key architectural constraints:
    $z^{\text{stat}}\_t \approx z^{\text{stat}}\_{t+1} \forall t \text{ in an episode},$ enforced by an invariance loss.
 
 3. **Decoder reconstructs observation from scene latents:**
-   $\hat{o}_t = D\big(z^{\text{stat}}, z_t^{\text{obj1}}, z_t^{\text{obj2}}, z_t^{\text{obj3}}\big)$.
+   $\hat{o}_t = D\big(z^{\text{stat}}, z_t^{\text{obj\_1}}, z_t^{\text{obj\_2}}, z_t^{\text{obj\_3}}\big)$.
    (I have omitted $z^{\text{dyn}}$ from the decoder to force scene factors into these slots; in the implementation, I use `z_stat + z_obj` for recon.)
 
 ### 2.2 Loss Functions
@@ -202,7 +203,7 @@ Let (E) and (D) be encoder/decoder. Given a pair $(o_t, a_t, o_{t+1})$:
 
 3. **Reconstruction loss on pixel space:**
    
-   $\hat{o}\_t = D\big(z^{\text{stat}}\_t, z\_t^{\text{obj1}}, z\_t^{\text{obj2}}, z\_t^{\text{obj3}}\big), \quad \mathcal{L}\_{\text{rec}} =\mid \hat{o}\_t - o\_t \mid^2.$
+   $\hat{o}\_t = D\big(z^{\text{stat}}\_t, z\_t^{\text{obj\_1}}, z\_t^{\text{obj\_2}}, z\_t^{\text{obj\_3}}\big), \quad \mathcal{L}\_{\text{rec}} =\mid \hat{o}\_t - o\_t \mid^2.$
 
 Total training objective:
 
