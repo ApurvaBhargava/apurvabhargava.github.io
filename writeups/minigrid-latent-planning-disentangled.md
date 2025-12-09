@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Latent-space Planning and Disentangled Control in MiniGrid"
-subtitle: "This project involves first training a reward-free JEPA planning model based on Planning with Latent Dynamics Model (PLDM) paper [(Sobal et al, 2025)](https://latent-planning.github.io) using BFS optimal + noisy trajectories from the MiniGrid DoorKey 5×5 environment and analyzing its learned latent dynamics. Building on this baseline, I then introduce a disentangled PLDM variant to examine how separating latent factors influences representation quality and downstream planning performance."
+subtitle: "This project involves first training a reward-free JEPA planning model based on Planning with Latent Dynamics Model (PLDM) paper <a href='https://latent-planning.github.io'>(Sobal et al, 2025)</a> using BFS optimal + noisy trajectories from the MiniGrid DoorKey 5×5 environment and analyzing its learned latent dynamics. Building on this baseline, I then introduce a disentangled PLDM variant to examine how separating latent factors influences representation quality and downstream planning performance."
 ---
 
 ## 1. Problem Setting and Single-latent-variable World Model
