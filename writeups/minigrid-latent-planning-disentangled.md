@@ -15,6 +15,12 @@ subtitle: "This project involves first training a reward-free JEPA planning mode
 
 **Data**: ~1200 trajectories (80% optimal and 20% random; 24576 subsequences of length 8 after windowing). Observations are 64×64 → 40x40 (downsized) full-observation RGB arrays, actions are discrete (turn left, turn right, move forward, pickup, toggle, done).
 
+**Goal**: The goal is to learn a **latent world model** that supports planning:
+
+1. An encoder (E) maps observations to latent state $z_t$.
+2. A latent dynamics model (f) predicts next latent state from current latent and action.
+3. A Cross-Entropy Method (CEM) optimizer without hand-coded state machines to find actions that reduce distance to goal in latent space.
+
 <div style="display: flex; gap: 1.5rem; justify-content: center; align-items: flex-start;">
 
   <figure style="text-align: center; width: 30%;">
@@ -33,12 +39,12 @@ subtitle: "This project involves first training a reward-free JEPA planning mode
 
 </div>
 
-
-**Goal**: The goal is to learn a **latent world model** that supports planning:
-
-1. An encoder (E) maps observations to latent state $z_t$.
-2. A latent dynamics model (f) predicts next latent state from current latent and action.
-3. A Cross-Entropy Method (CEM) optimizer without hand-coded state machines to find actions that reduce distance to goal in latent space.
+<figure style="text-align: center;">
+  <img src="/assets/img/writeups/gif_problem_optimal_path.png" style="width: 70%; border-radius: 12px;" alt="">
+  <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
+    Action-wise trajectory
+  </figcaption>
+</figure>
 
 ### 1.1 Single-Latent Model
 
