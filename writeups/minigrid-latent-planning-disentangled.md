@@ -53,17 +53,17 @@ Thus, $\mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} \cdot \mid \hat{z}\_{t+
 
 <div style="display: table; width: 100%; margin: 0 auto;">
 
-  <div style="display: table-cell; padding-right: 0.75rem; vertical-align: top;">
+  <div style="display: table-cell; padding-right: 0.5rem; vertical-align: top;">
     <figure style="text-align: center; margin: 0;">
       <img src="/assets/img/writeups/training_curves_orig.png"
-           style="width: 100%; height: auto;" alt="">
+           style="width: 90%; height: auto;" alt="">
       <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
         Training Curves
       </figcaption>
     </figure>
   </div>
 
-  <div style="display: table-cell; padding-left: 0.75rem; vertical-align: top;">
+  <div style="display: table-cell; padding-left: 0.5rem; vertical-align: top;">
     <figure style="text-align: center; margin: 0;">
       <img src="/assets/img/writeups/pca_orig.png"
            style="width: 100%; height: auto;" alt="">
