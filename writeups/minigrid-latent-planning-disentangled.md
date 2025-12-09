@@ -70,6 +70,7 @@ Thus, $\mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} \cdot \mid \hat{z}\_{t+
 
 </div>
 
+
 Planning: I use a CEM planner in latent space to find action sequences $a_t,\dots,a_{t+H}$ that minimize some distance to a goal latent $z_{\text{goal}}$, using repeated application of (f).
 
 <div style="display: flex; gap: 1.5rem; justify-content: center;">
