@@ -199,11 +199,11 @@ Let (E) and (D) be encoder/decoder. Given a pair $(o_t, a_t, o_{t+1})$:
 
 2. **Static invariance loss on (z^{\text{stat}}):**
    
-   $\mathcal{L}\_{\text{inv}} = \mid z^{\text{stat}}\_t - z^{\text{stat}}\_{t+1} \mid^2.$
+   $\mathcal{L}\_{\text{inv}} = \lvert z^{\text{stat}}\_t - z^{\text{stat}}\_{t+1} \rvert^2.$
 
 3. **Reconstruction loss on pixel space:**
    
-   $\hat{o}\_t = D\big(z^{\text{stat}}\_t, z\_t^{\text{obj\_1}}, z\_t^{\text{obj\_2}}, z\_t^{\text{obj\_3}}\big), \quad \mathcal{L}\_{\text{rec}} =\mid \hat{o}\_t - o\_t \mid^2.$
+   $\hat{o}\_t = D\big(z^{\text{stat}}\_t, z\_t^{\text{obj\_1}}, z\_t^{\text{obj\_2}}, z\_t^{\text{obj\_3}}\big), \quad \mathcal{L}\_{\text{rec}} =\lvert \hat{o}\_t - o\_t \rvert^2.$
 
 Total training objective:
 
@@ -211,7 +211,7 @@ $\mathcal{L} = \mathcal{L}\_{\text{dyn}} + \lambda\_{\text{inv}} \cdot \mathcal{
 
 where, like before:
 
-$ \mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} \cdot \mid \hat{z}^{\text{dyn}}\_{t+1} - z^{\text{dyn}}\_{t+1} \mid^2 + \lambda\_{\text{var}} \cdot \mathcal{L}\_{\text{var}}(z^{\text{dyn}}) + \lambda\_{\text{cov}} \cdot \mathcal{L}\_{\text{cov}}(z^{\text{dyn}})$.
+$ \mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} \cdot \lvert \hat{z}^{\text{dyn}}\_{t+1} - z^{\text{dyn}}\_{t+1} \rvert^2 + \lambda\_{\text{var}} \cdot \mathcal{L}\_{\text{var}}(z^{\text{dyn}}) + \lambda\_{\text{cov}} \cdot \mathcal{L}\_{\text{cov}}(z^{\text{dyn}})$.
 
 ### 2.3 Planning in Disentangled Latent Space
 
