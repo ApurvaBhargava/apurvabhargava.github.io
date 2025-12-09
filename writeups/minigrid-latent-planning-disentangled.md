@@ -289,7 +289,7 @@ $z_t = g(o_t), \quad \hat{z}_{t+1} = f(z_t, a_t),$
 
 where $z_t$ mixes agent state, door state, etc. The geometry of this space may be “twisted”, making straight-line interpolation between start and goal latents suboptimal or misleading.
 
-In the disentangled model, the distance in $z^{\text{plan}}-space more faithfully splits into:
+In the disentangled model, the distance in $z^{\text{plan}}$-space more faithfully splits into:
 
 
 $\mid z\_t^{\text{plan}} - z\_{\text{goal}}^{\text{plan}} \mid \approx \mid z\_t^{\text{dyn}} - z\_{\text{goal}}^{\text{dyn}} \mid * \sum\_k \mid z\_t^{\text{obj}\_k} - z_{\text{goal}}^{\text{obj}\_k} \mid.$
