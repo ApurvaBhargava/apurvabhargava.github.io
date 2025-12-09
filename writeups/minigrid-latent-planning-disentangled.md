@@ -210,20 +210,20 @@ Empirically, this yields:
 
 ## 4. Hyperparameters and Latent Sizes
 
-Given a vanilla model with single latent (z \in \mathbb{R}^{128}), a reasonable disentangled configuration that preserves similar capacity is:
+Given a vanilla model with single latent $z \in \mathbb{R}^{128}$, a reasonable disentangled configuration that preserves similar capacity is:
 
-* (d_{\text{dyn}} = 64),
-* (d_{\text{stat}} = 32),
-* (d_{\text{obj}} = 16) per object slot (3 slots → 48 dims).
+* $d_{\text{dyn}} = 64$,
+* $d_{\text{stat}} = 16$,
+* $d_{\text{obj}} = 16$ per object slot (3 slots → 48 dims).
 
-Total encoder output dims ≈ (64 + 32 + 48 = 144), similar to 128 but structured.
+Total encoder output dims ≈ (64 + 16 + 48 = 128), same as single latent variable but structured.
 
 Loss weights (good practical starting point):
 
 * VICReg:
-  (\lambda_{\text{sim}} = 1.0,\ \lambda_{\text{var}} = 1.0,\ \lambda_{\text{cov}} \approx 0.01),
-* Static invariance: (\lambda_{\text{inv}} \approx 0.1),
-* Reconstruction: (\lambda_{\text{rec}} \approx 1.0).
+  $\lambda\_{\text{sim}} = 1.0, \lambda\_{\text{var}} = 1.0, \lambda\_{\text{cov}} \approx 0.01$,
+* Static invariance: $\lambda_{\text{inv}} \approx 0.1$,
+* Reconstruction: $\lambda_{\text{rec}} \approx 1.0$.
 
 Training for at least as many epochs as the vanilla model is important (e.g. 100 vs 30), since the disentangled model is slightly more complex.
 
