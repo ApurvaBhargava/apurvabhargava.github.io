@@ -13,7 +13,7 @@ This project investigates whether SNIP, a gradient-based one-shot pruning method
 1. Few-shot / low-data generalization in un-pretrained models
 2. Few-shot / low-data generalization in pretrained settings (transfer learning)
 3. Reduction in catastrophic forgetting in continual learning by using SNIP saliency score in an EWC-style penalty
-4. Parameter-efficient conitnual learning via SNIP-based PackNet strategy
+4. Parameter-efficient continual learning via SNIP-based PackNet strategy
 
 The strategies are evaluated on the following models:
 

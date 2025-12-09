@@ -11,7 +11,7 @@ subtitle: "Selected academic and independent work"
     <img src="/assets/img/projects/minigrid3d.jpg" class="project-img" alt="">
     <h3 class="project-title">Latent-space Planning and Disentangled Control in MiniGrid</h3>
     <p class="project-desc">
-      Extended Predictive Latent Dynamics Models (PLDM) on MiniGrid DoorKey-5×5, building a flexible RGB encoder and a receding-horizon CEM planner with trajectory and latent-space diagnostics; achieved 92–100% planning success when replanning every 6–9 steps; analyzed how replan frequency affects efficiency and reliability; prototyped a disentangled PLDM with split latent heads, action-conditioned dynamics, and invariance penalties, for cleaner latent trajectories and more interpretable planning signals.
+      Extended Predictive Latent Dynamics Models (PLDM) on MiniGrid DoorKey-5×5, building a flexible RGB encoder and a receding-horizon CEM planner with trajectory and latent-space diagnostics; achieved 92–100% planning success when replanning every 6–9 steps; analyzed how replan frequency affects efficiency and reliability; prototyped a disentangled PLDM with split latent heads, action-conditioned dynamics, invariance penalties and reconstruction loss, for cleaner latent trajectories and more interpretable planning signals.
     </p>
     <div class="project-links">
       <a href="https://github.com/ApurvaBhargava/minigrid-latent-planning-disentangled" target="_blank">GitHub →</a>
