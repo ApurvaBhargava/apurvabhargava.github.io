@@ -186,7 +186,7 @@ $z_t = g(o_t), \quad \hat{z}_{t+1} = f(z_t, a_t),$
 
 where $z_t$ mixes agent state, door state, etc. The geometry of this space may be “twisted”, making straight-line interpolation between start and goal latents suboptimal or misleading.
 
-In the disentangled model, the distance in $z^{\text{plan}}$-space more faithfully splits into:
+In the disentangled model, the distance in $z^{\text{plan}}-space more faithfully splits into:
 
 
 $\mid z\_t^{\text{plan}} - z\_{\text{goal}}^{\text{plan}} \mid \approx \mid z\_t^{\text{dyn}} - z\_{\text{goal}}^{\text{dyn}} \mid * \sum\_k \mid z\_t^{\text{obj}\_k} - z_{\text{goal}}^{\text{obj}\_k} \mid.$
@@ -225,7 +225,7 @@ Loss weights (good practical starting point):
 * Static invariance: $\lambda_{\text{inv}} \approx 0.1$,
 * Reconstruction: $\lambda_{\text{rec}} \approx 1.0$.
 
-Training for at least as many epochs as the vanilla model is important (e.g. 100 vs 30), since the disentangled model is slightly more complex.
+Training for at least as many epochs as the vanilla model is important, since the disentangled model is slightly more complex.
 
 ---
 
@@ -241,7 +241,7 @@ $\hat{z}*{t+1}^{\text{obj}\_k} = g\_k(z\_t^{\text{dyn}}, z\_t^{\text{obj}\_{1:3}
 
 and a loss:
 
-$\mathcal{L}*{\text{obj-dyn}} = \sum\_k \mid \hat{z}*{t+1}^{\text{obj}k} - z*{t+1}^{\text{obj}k} \mid^2$.
+$\mathcal{L}\_{\text{obj-dyn}} = \sum\_k \mid \hat{z}\_{t+1}^{\text{obj}k} - z\_{t+1}^{\text{obj}k} \mid^2$.
 
 Then, during planning, I roll both $z^{\text{dyn}}$ and $z^{\text{obj}\_k}$ forward. This lets the model “imagine” picking up the key, opening the door, etc., entirely in latent space.
 
@@ -250,8 +250,8 @@ Then, during planning, I roll both $z^{\text{dyn}}$ and $z^{\text{obj}\_k}$ forw
 Instead of only matching one-step latent targets, I can unroll for (K) steps in latent space and match the encoder’s latents at future times:
 
 
-$\mathcal{L}*{\text{multi-dyn}} = \sum*{j=1}^K \gamma^{j-1}
-\mid \hat{z}*{t+j}^{\text{dyn}} - z*{t+j}^{\text{dyn}} \mid^2.$
+$\mathcal{L}\_{\text{multi-dyn}} = \sum\_{j=1}^K \gamma^{j-1}
+\mid \hat{z}\_{t+j}^{\text{dyn}} - z\_{t+j}^{\text{dyn}} \mid^2.$
 
 This encourages **long-horizon consistency**, directly improving planning stability.
 
