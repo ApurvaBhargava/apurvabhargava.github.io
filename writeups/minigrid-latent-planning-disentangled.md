@@ -25,14 +25,14 @@ subtitle: "This project involves first training a reward-free JEPA planning mode
 
   <figure style="text-align: center; width: 30%;">
     <img src="/assets/gifs/minigrid_doorkey_5x5_optimal.gif" style="width: 100%;" alt="">
-    <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
+    <figcaption style="margin-top: 0.5rem; font-size: 0.9rem;">
       Optimal trajectory
     </figcaption>
   </figure>
 
   <figure style="text-align: center; width: 30%;">
     <img src="/assets/gifs/minigrid_doorkey_5x5_random.gif" style="width: 100%;" alt="">
-    <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
+    <figcaption style="margin-top: 0.5rem; font-size: 0.9rem;">
       Random trajectory
     </figcaption>
   </figure>
@@ -60,7 +60,7 @@ where $\mathcal{L}\_{\text{var}}(z) = \lambda\_{\text{std}} \sum\_{i} \max\left(
     <figure style="text-align: center; margin: 0;">
       <img src="/assets/img/writeups/training_curves_orig.png"
            style="width: 85%; height: auto;" alt="">
-      <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
+      <figcaption style="margin-top: 0.5rem; font-size: 0.9rem;">
         Training Curves
       </figcaption>
     </figure>
@@ -70,7 +70,7 @@ where $\mathcal{L}\_{\text{var}}(z) = \lambda\_{\text{std}} \sum\_{i} \max\left(
     <figure style="text-align: center; margin: 0;">
       <img src="/assets/img/writeups/pca_orig.png"
            style="width: 100%; height: auto;" alt="">
-      <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
+      <figcaption style="margin-top: 0.5rem; font-size: 0.9rem;">
         Explained variance: PC1=0.490, PC2=0.232.<br>
         Avg. dist. between early and late states: 20.8510
       </figcaption>
@@ -120,7 +120,7 @@ These results highlight the importance of regular replanning in environments lik
     <figure style="text-align: center; margin: 0;">
       <img src="/assets/img/writeups/success_rate_orig.png"
            style="width: 100%; height: auto;" alt="">
-      <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
+      <figcaption style="margin-top: 0.5rem; font-size: 0.9rem;">
         Success Rate vs Replan Frequency
       </figcaption>
     </figure>
@@ -130,7 +130,7 @@ These results highlight the importance of regular replanning in environments lik
     <figure style="text-align: center; margin: 0;">
       <img src="/assets/img/writeups/average_steps_orig.png"
            style="width: 100%; height: auto;" alt="">
-      <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
+      <figcaption style="margin-top: 0.5rem; font-size: 0.9rem;">
         Average Steps vs Replan Frequency
       </figcaption>
     </figure>
