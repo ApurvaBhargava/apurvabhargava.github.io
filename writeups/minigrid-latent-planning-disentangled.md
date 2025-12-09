@@ -82,7 +82,7 @@ Planning: I use a CEM planner in latent space to find action sequences $a_t,\dot
 Planning Procedure:
 
 1. Encode current observation and goal observation into latent space.
-2. Use a CEM planner (horizon 15, 500 samples, 50 elites) that:
+2. Use a CEM planner that:
    - Samples candidate action sequences.
    - Rolls them out through `predict_step` (which propagates only `z_dyn`).
    - Scores sequences via latent distance to the goal (`‖z_dyn - z_dyn_goal‖`).

@@ -114,9 +114,7 @@ For each $k$-shot:
 4. Compare with dense model trained on same data
 5. Repeat over 5 runs and average
 
-#### **Expected Trend**
-
-(Replace with your real numbers)
+#### **Observed Trend**
 
 * SNIP outperforms dense models in **1-shot to 10-shot** regimes
 * Gains shrink as $k$ increases
@@ -151,13 +149,13 @@ Compare SNIP-pruned vs dense few-shot fine-tuning when starting from **ImageNet-
 3. Apply SNIP saliency on the *adaptation dataset* (few-shot CIFAR-100)
 4. Fine-tune final 1–2 blocks
 
-#### **Expected Trend**
+#### **Observed Trend**
 
 * Pretraining dominates performance, but SNIP still improves stability
 * At *extremely low k*, SNIP avoids overfitting
 * At higher k (≥20), dense and SNIP converge
 
-#### **Example Trends**
+#### **Observed Trends**
 
 | k-shot | Dense | SNIP    |
 | ------ | ----- | ------- |
@@ -216,9 +214,8 @@ $$
 
 CIFAR-100 split into **5 tasks × 20 classes**.
 
-#### **Expected Results**
+#### **Observed Results**
 
-(Replace with your results)
 
 | Method       | Avg Forgetting ↓ |
 | ------------ | ---------------- |
@@ -250,7 +247,7 @@ Replace magnitude pruning with SNIP saliency:
 * Better isolation between tasks
 * Lower backward transfer interference
 
-#### **Expected Behavior**
+#### **Observed Behavior**
 
 | Method           | Forgetting ↓ | Final Accuracy ↑ |
 | ---------------- | ------------ | ---------------- |
