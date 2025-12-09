@@ -53,17 +53,17 @@ Thus, $\mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} \cdot \mid \hat{z}\_{t+
 
 <div style="display: flex; gap: 1.5rem; justify-content: center; align-items: flex-start;">
 
-  <figure style="text-align: center; width: 65%;">
+  <figure style="text-align: center; width: 70%;">
     <img src="/assets/img/writeups/training_curves_orig.png" style="width: 100%;" alt="">
     <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
       Training Curves
     </figcaption>
   </figure>
 
-  <figure style="text-align: center; width: 65%;">
+  <figure style="text-align: center; width: 70%;">
     <img src="/assets/img/writeups/pca_orig.png" style="width: 100%;" alt="">
     <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
-      Explained variance: PC1=0.490, PC2=0.232. Avg. dist. between early and late states: 20.8510
+      Explained variance: PC1=0.490, PC2=0.232.\nAvg. dist. between early and late states: 20.8510
     </figcaption>
   </figure>
 
@@ -88,7 +88,6 @@ Planning: I use a CEM planner in latent space to find action sequences $a_t,\dot
          height="200" style="object-fit: contain; width: 100%; border-radius: 0 0 12px 12px;">
   </div>
 </div>
-
 
 
 <div style="display: flex; gap: 1.5rem; justify-content: center; align-items: flex-start;">
