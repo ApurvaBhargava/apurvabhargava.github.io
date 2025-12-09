@@ -160,7 +160,7 @@ which encourages it to encode exactly the **episode-level constant** part of the
 The **reconstruction loss** forces $(z^{\text{stat}}, z^{\text{obj}1:3})$ to be sufficient for reconstructing $o_t$:
 
 
-$p(o\_t \mid z^{\text{stat}}, z^{\text{obj}1:3}) \approx \delta\big(o\_t - D(z^{\text{stat}}, z^{\text{obj}1:3})\big)$,
+$p(o\_t \mid z^{\text{stat}}, z^{\text{obj}\_{1:3}}) \approx \delta\big(o\_t - D(z^{\text{stat}}, z^{\text{obj}\_{1:3}})\big)$,
 
 
 so any variation in the image (e.g. key picked up, door opened) must be encoded in $z^{\text{obj}k}$, not in $z^{\text{stat}}$.
@@ -189,7 +189,7 @@ where $z_t$ mixes agent state, door state, etc. The geometry of this space may b
 In the disentangled model, the distance in $z^{\text{plan}}$-space more faithfully splits into:
 
 
-$\mid z\_t^{\text{plan}} - z\_{\text{goal}}^{\text{plan}} \mid \approx \mid z\_t^{\text{dyn}} - z\_{\text{goal}}^{\text{dyn}} \mid * \sum\_k \mid z\_t^{\text{obj}k} - z_{\text{goal}}^{\text{obj}k} \mid.$
+$\mid z\_t^{\text{plan}} - z\_{\text{goal}}^{\text{plan}} \mid \approx \mid z\_t^{\text{dyn}} - z\_{\text{goal}}^{\text{dyn}} \mid * \sum\_k \mid z\_t^{\text{obj}\_k} - z_{\text{goal}}^{\text{obj}\_k} \mid.$
 
 If the object slots indeed specialize (e.g. one for door, one for key, one for goal), then:
 
@@ -238,7 +238,7 @@ Considering the current disentangled model is already outperforming the vanilla 
 Right now, in planning, I treat (z_t^{\text{obj}k}) as constant over the imagined horizon. A more accurate model adds an “object dynamics” head:
 
 [
-\hat{z}*{t+1}^{\text{obj}k} = g_k(z_t^{\text{dyn}}, z_t^{\text{obj}1:3}, a_t),
+\hat{z}*{t+1}^{\text{obj}k} = g_k(z_t^{\text{dyn}}, z_t^{\text{obj}\_{1:3}}, a_t),
 ]
 and a loss:
 [
