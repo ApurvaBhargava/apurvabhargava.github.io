@@ -181,20 +181,15 @@ This matches the classical control idea that I want a representation that is:
 
 Planning in the vanilla model operates in an entangled latent space:
 
-[
-z_t = g(o_t), \quad \hat{z}_{t+1} = f(z_t, a_t),
-]
-where (z_t) mixes agent state, door state, etc. The geometry of this space may be “twisted”, making straight-line interpolation between start and goal latents suboptimal or misleading.
 
-In the disentangled model, the distance in (z^{\text{plan}})-space more faithfully splits into:
+$z_t = g(o_t), \quad \hat{z}_{t+1} = f(z_t, a_t),$
 
-[
-\left| z_t^{\text{plan}} - z_{\text{goal}}^{\text{plan}} \right|
-\approx
-\left| z_t^{\text{dyn}} - z_{\text{goal}}^{\text{dyn}} \right|
+where $z_t$ mixes agent state, door state, etc. The geometry of this space may be “twisted”, making straight-line interpolation between start and goal latents suboptimal or misleading.
 
-* \sum_k \left| z_t^{\text{obj}k} - z_{\text{goal}}^{\text{obj}k} \right|.
-  ]
+In the disentangled model, the distance in $z^{\text{plan}}$-space more faithfully splits into:
+
+
+$\mid z\_t^{\text{plan}} - z\_{\text{goal}}^{\text{plan}} \mid \approx \mid z\_t^{\text{dyn}} - z\_{\text{goal}}^{\text{dyn}} \mid * \sum\_k \mid z\_t^{\text{obj}k} - z_{\text{goal}}^{\text{obj}k} \mid.$
 
 If the object slots indeed specialize (e.g. one for door, one for key, one for goal), then:
 
