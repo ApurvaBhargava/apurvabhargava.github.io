@@ -15,6 +15,12 @@ subtitle: "This project involves first training a reward-free JEPA planning mode
 
 **Data**: ~1200 trajectories (80% optimal and 20% random; 24576 subsequences of length 8 after windowing). Observations are 64×64 → 40x40 (downsized) full-observation RGB arrays, actions are discrete (turn left, turn right, move forward, pickup, toggle, done).
 
+<div style="display: flex; gap: 1rem; justify-content: center;">
+  <img src="/assets/gifs/minigrid_doorkey_5x5_optimal.gif" width="45%">
+  <img src="/assets/gifs/minigrid_doorkey_5x5_random.gif" width="45%">
+</div>
+
+
 **Goal**: The goal is to learn a **latent world model** that supports planning:
 
 1. An encoder (E) maps observations to latent state $z_t$.
