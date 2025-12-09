@@ -235,26 +235,23 @@ Considering the current disentangled model is already outperforming the vanilla 
 
 ### 5.1 Model Object Dynamics Explicitly
 
-Right now, in planning, I treat (z_t^{\text{obj}k}) as constant over the imagined horizon. A more accurate model adds an “object dynamics” head:
+Right now, in planning, I treat $z\_t^{\text{obj}\_k}$ as constant over the imagined horizon. A more accurate model adds an “object dynamics” head:
 
-[
-\hat{z}*{t+1}^{\text{obj}k} = g_k(z_t^{\text{dyn}}, z_t^{\text{obj}\_{1:3}}, a_t),
-]
+$\hat{z}*{t+1}^{\text{obj}\_k} = g\_k(z\_t^{\text{dyn}}, z\_t^{\text{obj}\_{1:3}}, a_t)$,
+
 and a loss:
-[
-\mathcal{L}*{\text{obj-dyn}} = \sum_k \left| \hat{z}*{t+1}^{\text{obj}k} - z*{t+1}^{\text{obj}k} \right|^2.
-]
 
-Then, during planning, I roll both (z^{\text{dyn}}) and (z^{\text{obj}k}) forward. This lets the model “imagine” picking up the key, opening the door, etc., entirely in latent space.
+$\mathcal{L}*{\text{obj-dyn}} = \sum\_k \mid \hat{z}*{t+1}^{\text{obj}k} - z*{t+1}^{\text{obj}k} \mid^2$.
+
+Then, during planning, I roll both $z^{\text{dyn}}$ and $z^{\text{obj}\_k}$ forward. This lets the model “imagine” picking up the key, opening the door, etc., entirely in latent space.
 
 ### 5.2 Multi-step Prediction Loss
 
 Instead of only matching one-step latent targets, I can unroll for (K) steps in latent space and match the encoder’s latents at future times:
 
-[
-\mathcal{L}*{\text{multi-dyn}} = \sum*{j=1}^K \gamma^{j-1}
-\left| \hat{z}*{t+j}^{\text{dyn}} - z*{t+j}^{\text{dyn}} \right|^2.
-]
+
+$\mathcal{L}*{\text{multi-dyn}} = \sum*{j=1}^K \gamma^{j-1}
+\mid \hat{z}*{t+j}^{\text{dyn}} - z*{t+j}^{\text{dyn}} \mid^2.$
 
 This encourages **long-horizon consistency**, directly improving planning stability.
 
