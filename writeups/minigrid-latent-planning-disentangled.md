@@ -151,23 +151,24 @@ The latent decomposition is a *representation-theoretic* analogue:
 * $z^{\text{stat}} \approx \psi(s^{\text{layout}})$
 * $z\_t^{\text{obj}k} \approx \xi\_k(s\_t^{\text{door}}, s\_t^{\text{key}}, s\_t^{\text{goal}})$
 
-The **invariance loss** on (z^{\text{stat}}) enforces:
-[
-z^{\text{stat}}(o_t) \approx z^{\text{stat}}(o_{t'}) \quad \forall t, t' \text{ (same episode)},
-]
+The **invariance loss** on $z^{\text{stat}}$ enforces:
+
+$z^{\text{stat}}(o\_t) \approx z^{\text{stat}}(o\_{t'}) \quad \forall t, t' \text{ (same episode)},$
+
 which encourages it to encode exactly the **episode-level constant** part of the environment (layout), and *not* the changing door/key/goal states.
 
-The **reconstruction loss** forces ((z^{\text{stat}}, z^{\text{obj}1:3})) to be sufficient for reconstructing (o_t):
+The **reconstruction loss** forces $(z^{\text{stat}}, z^{\text{obj}1:3})$ to be sufficient for reconstructing $o_t$:
 
-[
-p(o_t \mid z^{\text{stat}}, z^{\text{obj}1:3}) \approx \delta\big(o_t - D(z^{\text{stat}}, z^{\text{obj}1:3})\big),
-]
-so any variation in the image (e.g. key picked up, door opened) must be encoded in (z^{\text{obj}k}), not in (z^{\text{stat}}).
 
-Meanwhile, the **dynamics prediction** exclusively uses (z^{\text{dyn}}):
-[
-p(z^{\text{dyn}}_{t+1} \mid z^{\text{dyn}}_t, a_t),
-]
+$p(o\_t \mid z^{\text{stat}}, z^{\text{obj}1:3}) \approx \delta\big(o\_t - D(z^{\text{stat}}, z^{\text{obj}1:3})\big)$,
+
+
+so any variation in the image (e.g. key picked up, door opened) must be encoded in $z^{\text{obj}k}$, not in $z^{\text{stat}}$.
+
+Meanwhile, the **dynamics prediction** exclusively uses $z^{\text{dyn}}$:
+
+$p(z^{\text{dyn}}\_{t+1} \mid z^{\text{dyn}}\_t, a\_t),$
+
 making it a minimal **control-relevant sufficient statistic** for the agent’s motion.
 
 This matches the classical control idea that I want a representation that is:
