@@ -39,13 +39,6 @@ subtitle: "This project involves first training a reward-free JEPA planning mode
 
 </div>
 
-<figure style="text-align: center;">
-  <img src="/assets/img/writeups/gif_problem_optimal_path.png" style="width: 100%; border-radius: 12px;" alt="">
-  <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
-    Action-wise trajectory
-  </figcaption>
-</figure>
-
 ### 1.1 Single-Latent Model
 
 The single-latent model uses a single latent vector $z_t \in \mathbb{R}^{d}$, with encoder and predictor: $z_t = E(o_t)$, $\hat{z}_{t+1} = f(z_t, a_t)$.
@@ -58,8 +51,27 @@ Training minimizes **dynamics loss** (self-supervised): $\mathcal{L}\_{\text{dyn
 
 Thus, $\mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} \cdot \mid \hat{z}\_{t+1} - z\_{t+1} \mid^2$ + $\lambda\_{\text{var}} \cdot \mathcal{L}\_{\text{var}}(z)$ + $\lambda\_{\text{cov}} \cdot \mathcal{L}\_{\text{cov}}(z)$.
 
+<div style="display: flex; gap: 1.5rem; justify-content: center; align-items: flex-start;">
+
+  <figure style="text-align: center; width: 30%;">
+    <img src="/assets/img/writeups/training_curves_orig.png" style="width: 100%;" alt="">
+    <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
+      Training Curves
+    </figcaption>
+  </figure>
+
+  <figure style="text-align: center; width: 30%;">
+    <img src="/assets/img/writeups/pca_orig.png" style="width: 100%;" alt="">
+    <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
+      Explained variance: PC1=0.490, PC2=0.232. Average distance between early and late states: 20.8510
+    </figcaption>
+  </figure>
+
+</div>
 
 Planning: I use a CEM planner in latent space to find action sequences $a_t,\dots,a_{t+H}$ that minimize some distance to a goal latent $z_{\text{goal}}$, using repeated application of (f).
+
+
 
 **Issue.** In DoorKey problem, the state has *heterogeneous structure* (agent, door, key, goal). A single vector (z) must entangle:
 
