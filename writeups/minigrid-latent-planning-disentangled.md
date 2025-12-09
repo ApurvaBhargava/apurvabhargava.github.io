@@ -252,7 +252,7 @@ The latent decomposition is a *representation-theoretic* analogue:
 
 * $z_t^{\text{dyn}} \approx \phi(s\_t^{\text{agent}})$
 * $z^{\text{stat}} \approx \psi(s^{\text{layout}})$
-* $z\_t^{\text{obj}k} \approx \xi\_k(s\_t^{\text{door}}, s\_t^{\text{key}}, s\_t^{\text{goal}})$
+* $z\_t^{\text{obj}\_k} \approx \xi\_k(s\_t^{\text{door}}, s\_t^{\text{key}}, s\_t^{\text{goal}})$
 
 The **invariance loss** on $z^{\text{stat}}$ enforces:
 
@@ -260,13 +260,13 @@ $z^{\text{stat}}(o\_t) \approx z^{\text{stat}}(o\_{t'}) \quad \forall t, t' \tex
 
 which encourages it to encode exactly the **episode-level constant** part of the environment (layout), and *not* the changing door/key/goal states.
 
-The **reconstruction loss** forces $(z^{\text{stat}}, z^{\text{obj}1:3})$ to be sufficient for reconstructing $o_t$:
+The **reconstruction loss** forces $(z^{\text{stat}}, z^{\text{obj}\_{1:3}})$ to be sufficient for reconstructing $o_t$:
 
 
 $p(o\_t \mid z^{\text{stat}}, z^{\text{obj}\_{1:3}}) \approx \delta\big(o\_t - D(z^{\text{stat}}, z^{\text{obj}\_{1:3}})\big)$,
 
 
-so any variation in the image (e.g. key picked up, door opened) must be encoded in $z^{\text{obj}k}$, not in $z^{\text{stat}}$.
+so any variation in the image (e.g. key picked up, door opened) must be encoded in $z^{\text{obj}\_k}$, not in $z^{\text{stat}}$.
 
 Meanwhile, the **dynamics prediction** exclusively uses $z^{\text{dyn}}$:
 
@@ -345,7 +345,7 @@ $\hat{z}*{t+1}^{\text{obj}\_k} = g\_k(z\_t^{\text{dyn}}, z\_t^{\text{obj}\_{1:3}
 
 and a loss:
 
-$\mathcal{L}\_{\text{obj-dyn}} = \sum\_k \mid \hat{z}\_{t+1}^{\text{obj}k} - z\_{t+1}^{\text{obj}k} \mid^2$.
+$\mathcal{L}\_{\text{obj-dyn}} = \sum\_k \mid \hat{z}\_{t+1}^{\text{obj}\_k} - z\_{t+1}^{\text{obj}\_k} \mid^2$.
 
 Then, during planning, I roll both $z^{\text{dyn}}$ and $z^{\text{obj}\_k}$ forward. This lets the model “imagine” picking up the key, opening the door, etc., entirely in latent space.
 
