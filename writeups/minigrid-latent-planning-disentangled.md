@@ -40,7 +40,7 @@ subtitle: "This project involves first training a reward-free JEPA planning mode
 </div>
 
 <figure style="text-align: center;">
-  <img src="/assets/img/writeups/gif_problem_optimal_path.png" style="width: 70%; border-radius: 12px;" alt="">
+  <img src="/assets/img/writeups/gif_problem_optimal_path.png" style="width: 100%; border-radius: 12px;" alt="">
   <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
     Action-wise trajectory
   </figcaption>
