@@ -281,7 +281,7 @@ Both encourage clear, object-like semantics in each slot.
 Even with the same model, planning can be improved:
 
 * **CEM ensembles:** sample multiple model rollouts from slightly perturbed parameters (model uncertainty) and optimize “robust cost”.
-* **Value function over latents:** train a critic (V(z^{\text{plan}})) and use it as a terminal value estimate instead of pure goal distance; this is closer to Dreamer-style planning.
+* **Value function over latents:** train a critic $V(z^{\text{plan}})$ and use it as a terminal value estimate instead of pure goal distance; this is closer to Dreamer-style planning.
 
 ### 5.6 Training Tricks
 
