@@ -53,14 +53,14 @@ Thus, $\mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} \cdot \mid \hat{z}\_{t+
 
 <div style="display: flex; gap: 1.5rem; justify-content: center; align-items: flex-start;">
 
-  <figure style="text-align: center; width: 55%;">
+  <figure style="text-align: center; width: 65%;">
     <img src="/assets/img/writeups/training_curves_orig.png" style="width: 100%;" alt="">
     <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
       Training Curves
     </figcaption>
   </figure>
 
-  <figure style="text-align: center; width: 55%;">
+  <figure style="text-align: center; width: 65%;">
     <img src="/assets/img/writeups/pca_orig.png" style="width: 100%;" alt="">
     <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
       Explained variance: PC1=0.490, PC2=0.232. Avg. dist. between early and late states: 20.8510
@@ -72,20 +72,23 @@ Thus, $\mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} \cdot \mid \hat{z}\_{t+
 Planning: I use a CEM planner in latent space to find action sequences $a_t,\dots,a_{t+H}$ that minimize some distance to a goal latent $z_{\text{goal}}$, using repeated application of (f).
 
 <div style="display: flex; gap: 1.5rem; justify-content: center;">
-
   <!-- LEFT -->
-  <div style="display: flex; flex-direction: column; gap: 0rem; width: 48%;">
-    <img src="/assets/img/writeups/ep1_frames.png" height="200" style="object-fit: contain; width: 100%; border-radius: 12px;">
-    <img src="/assets/img/writeups/ep1_dist.png" height="200" style="object-fit: contain; width: 100%; border-radius: 12px;">
+  <div style="display: flex; flex-direction: column; gap: 0; width: 48%;">
+    <img src="/assets/img/writeups/ep1_frames.png"
+         height="200" style="object-fit: contain; width: 100%; border-radius: 12px 12px 0 0;">
+    <img src="/assets/img/writeups/ep1_dist.png"
+         height="200" style="object-fit: contain; width: 100%; border-radius: 0 0 12px 12px;">
   </div>
 
   <!-- RIGHT -->
-  <div style="display: flex; flex-direction: column; gap: 0rem; width: 48%;">
-    <img src="/assets/img/writeups/ep3_frames.png" height="200" style="object-fit: contain; width: 100%; border-radius: 12px;">
-    <img src="/assets/img/writeups/ep3_dist.png" height="200" style="object-fit: contain; width: 100%; border-radius: 12px;">
+  <div style="display: flex; flex-direction: column; gap: 0; width: 48%;">
+    <img src="/assets/img/writeups/ep3_frames.png"
+         height="200" style="object-fit: contain; width: 100%; border-radius: 12px 12px 0 0;">
+    <img src="/assets/img/writeups/ep3_dist.png"
+         height="200" style="object-fit: contain; width: 100%; border-radius: 0 0 12px 12px;">
   </div>
-
 </div>
+
 
 
 <div style="display: flex; gap: 1.5rem; justify-content: center; align-items: flex-start;">
