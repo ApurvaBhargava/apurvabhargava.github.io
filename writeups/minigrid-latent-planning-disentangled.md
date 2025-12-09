@@ -259,10 +259,10 @@ This encourages **long-horizon consistency**, directly improving planning stabil
 
 Pixel MSE is simple but crude. Two upgrades:
 
-* **Perceptual loss** in a feature space (e.g. ConvNet features (\phi(\cdot))):
-  [
-  \mathcal{L}_{\text{rec}}^{\text{perc}} = |\phi(\hat{o}_t) - \phi(o_t)|^2,
-  ]
+* **Perceptual loss** in a feature space (e.g. ConvNet features $\phi(\cdot)$):
+  
+  $\mathcal{L}\_{\text{rec}}^{\text{perc}} = \mid\phi(\hat{o}\_t) - \phi(o\_t)\mid^2$,
+  
 * Or **cross-entropy over discrete tiles** if I convert images into one-hot tile maps.
 
 This can sharpen how well object slots reflect semantic entities (door vs key vs goal).
