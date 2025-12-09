@@ -54,7 +54,7 @@ Thus, $\mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} \cdot \mid \hat{z}\_{t+
 
 <div style="
   display: flex;
-  gap: 1.5rem;
+  gap: 1.0rem;
   justify-content: center;
   align-items: flex-start;
   max-width: 1400px;
