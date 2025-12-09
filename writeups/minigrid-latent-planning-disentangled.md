@@ -4,7 +4,7 @@ title: "Latent-space Planning and Disentangled Control in MiniGrid"
 subtitle: "This project involves first training a reward-free JEPA planning model based on Planning with Latent Dynamics Model (PLDM) paper (Sobal et al, 2025) using BFS optimal + noisy trajectories from the MiniGrid DoorKey 5×5 environment and analyzing its learned latent dynamics. Building on this baseline, I then introduce a disentangled PLDM variant to examine how separating latent factors influences representation quality and downstream planning performance."
 ---
 
-## 1. Problem Setting and Vanilla World Model
+## 1. Problem Setting and Single-latent-variable World Model
 
 **Environment**: The environment is a MDP, specifically, MiniGrid DoorKey 5x5 (and transfer to Empty, Empty-Random and Obstacles variants). The agent must pick up a key, unlock a door, and reach the goal. Unlike the original paper's continuous navigation environments, this is a discrete setting.
 
@@ -21,7 +21,7 @@ subtitle: "This project involves first training a reward-free JEPA planning mode
 2. A latent dynamics model (f) predicts next latent state from current latent and action.
 3. A Cross-Entropy Method (CEM) optimizer without hand-coded state machines to find actions that reduce distance to goal in latent space.
 
-### 1.1 Vanilla Single-Latent Model
+### 1.1 Single-Latent Model
 
 The single-latent model uses a single latent vector $z_t \in \mathbb{R}^{d}$, with encoder and predictor: $z_t = E(o_t)$, $\hat{z}_{t+1} = f(z_t, a_t)$.
 
@@ -179,7 +179,7 @@ This matches the classical control idea that I want a representation that is:
 
 ### 3.2 Why This Helps Planning
 
-Planning in the vanilla model operates in an entangled latent space:
+Planning in this model operates in an entangled latent space:
 
 
 $z_t = g(o_t), \quad \hat{z}_{t+1} = f(z_t, a_t),$
@@ -210,7 +210,7 @@ Empirically, this yields:
 
 ## 4. Hyperparameters and Latent Sizes
 
-Given a vanilla model with single latent $z \in \mathbb{R}^{128}$, a reasonable disentangled configuration that preserves similar capacity is:
+Given a model with single latent $z \in \mathbb{R}^{128}$, a reasonable disentangled configuration that preserves similar capacity is:
 
 * $d_{\text{dyn}} = 64$,
 * $d_{\text{stat}} = 16$,
@@ -225,13 +225,13 @@ Loss weights (good practical starting point):
 * Static invariance: $\lambda_{\text{inv}} \approx 0.1$,
 * Reconstruction: $\lambda_{\text{rec}} \approx 1.0$.
 
-Training for at least as many epochs as the vanilla model is important, since the disentangled model is slightly more complex.
+Training for at least as many epochs as the single-latent model is important, since the disentangled model is slightly more complex.
 
 ---
 
 ## 5. Further Ways to Improve Performance
 
-Considering the current disentangled model is already outperforming the vanilla baseline, here are some directions to push it further.
+Considering the current disentangled model is already outperforming the baseline, here are some directions to push it further.
 
 ### 5.1 Model Object Dynamics Explicitly
 
@@ -295,7 +295,7 @@ Small but practical:
 
 ## 6. Summary
 
-Compared to a **vanilla single-latent world model**, the **disentangled latent world model**:
+Compared to a **single-latent world model**, the **disentangled latent world model**:
 
 * Splits the latent into **dynamic**, **static**, and **object-centric** components.
 * Uses **invariance** on static latents and **reconstruction** to learn self-supervised object slots.
