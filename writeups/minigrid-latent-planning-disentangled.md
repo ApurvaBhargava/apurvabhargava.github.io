@@ -307,7 +307,8 @@ Empirically, this yields:
 * Higher success rate,
 * Fewer steps to goal,
 * Better generalization to new layouts (e.g. Empty-5x5),
-  compared to a single undifferentiated latent.
+  
+compared to a single undifferentiated latent.
 
 ---
 
@@ -405,3 +406,4 @@ Compared to a **single-latent world model**, the **disentangled latent world mod
 * Uses **VICReg**-style losses on a dedicated **control-relevant** dynamic latent.
 * Plans in a **structured latent space** where agent, door, key, and goal information are geometrically more separable.
 
+Overall, a representation that factorize the environment into meaningful subspaces makes both **model learning** and **planning optimization** substantially easier.
