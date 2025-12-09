@@ -8,7 +8,7 @@ subtitle: "This project involves first training a reward-free JEPA planning mode
 
 **Environment**: The environment is a MDP, specifically, MiniGrid DoorKey 5x5 (and transfer to Empty, Empty-Random and Obstacles variants). The agent must pick up a key, unlock a door, and reach the goal. Unlike the original paper's continuous navigation environments, this is a discrete setting.
 
-* True (hidden) state: $s_t \in \mathcal{S}$
+* True (latent) state: $s_t \in \mathcal{S}$
 * Observation: $o_t \in \mathbb{R}^{H \times W \times 3}$ (RGB grid)
 * Action: $(a_t \in \mathcal{A})$ (discrete)
 * Transition: $s_{t+1} \sim P(s_{t+1} \mid s_t, a_t)$
