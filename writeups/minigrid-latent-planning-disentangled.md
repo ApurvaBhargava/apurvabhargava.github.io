@@ -74,13 +74,13 @@ Planning: I use a CEM planner in latent space to find action sequences $a_t,\dot
 <div style="display: flex; gap: 1.5rem; justify-content: center;">
 
   <!-- LEFT -->
-  <div style="display: flex; flex-direction: column; gap: 1rem; width: 48%;">
+  <div style="display: flex; flex-direction: column; gap: 0rem; width: 48%;">
     <img src="/assets/img/writeups/ep1_frames.png" height="200" style="object-fit: contain; width: 100%; border-radius: 12px;">
     <img src="/assets/img/writeups/ep1_dist.png" height="200" style="object-fit: contain; width: 100%; border-radius: 12px;">
   </div>
 
   <!-- RIGHT -->
-  <div style="display: flex; flex-direction: column; gap: 1rem; width: 48%;">
+  <div style="display: flex; flex-direction: column; gap: 0rem; width: 48%;">
     <img src="/assets/img/writeups/ep3_frames.png" height="200" style="object-fit: contain; width: 100%; border-radius: 12px;">
     <img src="/assets/img/writeups/ep3_dist.png" height="200" style="object-fit: contain; width: 100%; border-radius: 12px;">
   </div>
@@ -105,7 +105,6 @@ Planning: I use a CEM planner in latent space to find action sequences $a_t,\dot
   </figure>
 
 </div>
-
 
 
 **Issue.** In DoorKey problem, the state has *heterogeneous structure* (agent, door, key, goal). A single vector (z) must entangle:
