@@ -51,33 +51,30 @@ Training minimizes **dynamics loss** (self-supervised): $\mathcal{L}\_{\text{dyn
 
 Thus, $\mathcal{L}\_{\text{dyn}} = \lambda\_{\text{sim}} \cdot \mid \hat{z}\_{t+1} - z\_{t+1} \mid^2$ + $\lambda\_{\text{var}} \cdot \mathcal{L}\_{\text{var}}(z)$ + $\lambda\_{\text{cov}} \cdot \mathcal{L}\_{\text{cov}}(z)$.
 
+<div style="display: table; width: 100%; margin: 0 auto;">
 
-<div style="
-  display: flex;
-  gap: 1.0rem;
-  justify-content: center;
-  align-items: flex-start;
-  max-width: 1400px;
-  margin: 0 auto;
-">
+  <div style="display: table-cell; padding-right: 0.75rem; vertical-align: top;">
+    <figure style="text-align: center; margin: 0;">
+      <img src="/assets/img/writeups/training_curves_orig.png"
+           style="width: 100%; height: auto;" alt="">
+      <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
+        Training Curves
+      </figcaption>
+    </figure>
+  </div>
 
-  <figure style="text-align: center; width: 48%;">
-    <img src="/assets/img/writeups/training_curves_orig.png" style="width: 100%;" alt="">
-    <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
-      Training Curves
-    </figcaption>
-  </figure>
-
-  <figure style="text-align: center; width: 48%;">
-    <img src="/assets/img/writeups/pca_orig.png" style="width: 100%;" alt="">
-    <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
-      Explained variance: PC1=0.490, PC2=0.232.<br>
-      Avg. dist. between early and late states: 20.8510
-    </figcaption>
-  </figure>
+  <div style="display: table-cell; padding-left: 0.75rem; vertical-align: top;">
+    <figure style="text-align: center; margin: 0;">
+      <img src="/assets/img/writeups/pca_orig.png"
+           style="width: 100%; height: auto;" alt="">
+      <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
+        Explained variance: PC1=0.490, PC2=0.232.<br>
+        Avg. dist. between early and late states: 20.8510
+      </figcaption>
+    </figure>
+  </div>
 
 </div>
-
 
 
 Planning: I use a CEM planner in latent space to find action sequences $a_t,\dots,a_{t+H}$ that minimize some distance to a goal latent $z_{\text{goal}}$, using repeated application of (f).
