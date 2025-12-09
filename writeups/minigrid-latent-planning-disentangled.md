@@ -94,14 +94,14 @@ Planning: I use a CEM planner in latent space to find action sequences $a_t,\dot
 
 <div style="display: flex; gap: 1.5rem; justify-content: center; align-items: flex-start;">
 
-  <figure style="text-align: center; width: 70%;">
+  <figure style="text-align: center; width: 100%;">
     <img src="/assets/img/writeups/success_rate_orig.png" style="width: 100%;" alt="">
     <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
       Success Rate vs Replan Frequency
     </figcaption>
   </figure>
 
-  <figure style="text-align: center; width: 70%;">
+  <figure style="text-align: center; width: 100%;">
     <img src="/assets/img/writeups/average_steps_orig.png" style="width: 100%;" alt="">
     <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">
       Average Steps vs Replan Frequency
